@@ -4,27 +4,28 @@ const menuButton=document.getElementById("menuButton");
 const sidebar=document.getElementById("sidebar");
 const searchInput=document.getElementById("searchInput");
 const noResults=document.getElementById("noResults");
-const languageSelect=document.getElementById("languageSelect");
+const languageDropdown=document.getElementById("languageDropdown");
+const languageButton=document.getElementById("languageButton");
+const languageMenu=document.getElementById("languageMenu");
+const currentLanguageFlag=document.getElementById("currentLanguageFlag");
+const currentLanguageCode=document.getElementById("currentLanguageCode");
 
-const languagePages={
-  es:"./",
-  en:"./en.html",
-  pt:"./pt.html",
-  de:"./de.html",
-  fr:"./fr.html",
-  ja:"./ja.html"
+const languageFlags={
+  es:"./assets/flags/es.svg",
+  en:"./assets/flags/gb.svg",
+  pt:"./assets/flags/pt.svg",
+  de:"./assets/flags/de.svg",
+  fr:"./assets/flags/fr.svg",
+  ja:"./assets/flags/jp.svg"
 };
-
-if(languageSelect){
-  const currentLanguage=root.dataset.language||root.lang||"es";
-  languageSelect.value=currentLanguage;
-  languageSelect.addEventListener("change",()=>{
-    const destination=languagePages[languageSelect.value];
-    if(destination){
-      window.location.href=destination;
-    }
-  });
-}
+const languageLabels={
+  es:"ES",
+  en:"EN",
+  pt:"PT",
+  de:"DE",
+  fr:"FR",
+  ja:"日本語"
+};
 
 const uiText={
   es:{copy:"Copiar",copied:"✓ Copiado",unavailable:"No disponible",light:"Cambiar a modo claro",dark:"Cambiar a modo oscuro"},
@@ -36,6 +37,55 @@ const uiText={
 };
 const currentLanguage=root.dataset.language||root.lang||"es";
 const labels=uiText[currentLanguage]||uiText.es;
+
+function syncLanguageDropdown(){
+  if(!languageButton||!languageMenu) return;
+
+  if(currentLanguageFlag){
+    currentLanguageFlag.src=languageFlags[currentLanguage]||languageFlags.es;
+  }
+  if(currentLanguageCode){
+    currentLanguageCode.textContent=languageLabels[currentLanguage]||"ES";
+  }
+
+  languageMenu.querySelectorAll("[data-lang]").forEach(link=>{
+    const active=link.dataset.lang===currentLanguage;
+    link.classList.toggle("active",active);
+    if(active){
+      link.setAttribute("aria-current","page");
+    }else{
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+syncLanguageDropdown();
+
+if(languageButton&&languageMenu){
+  languageButton.addEventListener("click",event=>{
+    event.stopPropagation();
+    const open=!languageMenu.classList.contains("open");
+    languageMenu.classList.toggle("open",open);
+    languageButton.setAttribute("aria-expanded",open?"true":"false");
+  });
+
+  languageMenu.addEventListener("click",event=>{
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click",()=>{
+    languageMenu.classList.remove("open");
+    languageButton.setAttribute("aria-expanded","false");
+  });
+
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"){
+      languageMenu.classList.remove("open");
+      languageButton.setAttribute("aria-expanded","false");
+      languageButton.focus();
+    }
+  });
+}
 
 const progress=document.createElement("div");
 progress.className="scroll-progress";
