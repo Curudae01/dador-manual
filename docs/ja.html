@@ -6,7 +6,7 @@
   <meta name="description" content="Second Life 用 Dador de objetos のユーザーマニュアル。">
   <meta name="theme-color" content="#6d4aff">
   <title>Dador de objetos · ユーザーマニュアル</title>
-  <link rel="stylesheet" href="./styles.css?v=i18n-20260929-1">
+  <link rel="stylesheet" href="./styles.css?v=flags-20260929-1">
 </head>
 <body>
 <header class="topbar">
@@ -17,12 +17,21 @@
   </a>
   <div class="top-actions">
     <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="マニュアルを検索…" aria-label="マニュアルを検索…"></label>
-    <label class="language-control" aria-label="言語を変更">
-      <span class="language-icon">文</span>
-      <select id="languageSelect" class="language-select">
-        <option value="es">🇪🇸 ES</option><option value="en">🇬🇧 EN</option><option value="pt">🇵🇹 PT</option><option value="de">🇩🇪 DE</option><option value="fr">🇫🇷 FR</option><option value="ja">🇯🇵 日本語</option>
-      </select>
-    </label>
+    <div class="language-dropdown" id="languageDropdown">
+        <button class="language-button" id="languageButton" type="button" aria-label="言語を変更" aria-haspopup="true" aria-expanded="false">
+          <img class="language-flag" id="currentLanguageFlag" src="./assets/flags/es.svg" alt="">
+          <span class="language-code" id="currentLanguageCode">ES</span>
+          <span class="language-chevron" aria-hidden="true">⌄</span>
+        </button>
+        <div class="language-menu" id="languageMenu" role="menu">
+          <a href="./" data-lang="es" role="menuitem"><img class="language-flag" src="./assets/flags/es.svg" alt=""><span>ES</span></a>
+          <a href="./en.html" data-lang="en" role="menuitem"><img class="language-flag" src="./assets/flags/gb.svg" alt=""><span>EN</span></a>
+          <a href="./pt.html" data-lang="pt" role="menuitem"><img class="language-flag" src="./assets/flags/pt.svg" alt=""><span>PT</span></a>
+          <a href="./de.html" data-lang="de" role="menuitem"><img class="language-flag" src="./assets/flags/de.svg" alt=""><span>DE</span></a>
+          <a href="./fr.html" data-lang="fr" role="menuitem"><img class="language-flag" src="./assets/flags/fr.svg" alt=""><span>FR</span></a>
+          <a href="./ja.html" data-lang="ja" role="menuitem"><img class="language-flag" src="./assets/flags/jp.svg" alt=""><span>日本語</span></a>
+        </div>
+      </div>
     <button class="icon-button" id="themeButton" aria-label="テーマを変更">◐</button>
   </div>
 </header>
@@ -258,5 +267,5 @@ TEMP_Nota de demostración</code></pre>
 <footer class="site-footer"><strong>Dador de objetos</strong><span>公開ユーザーマニュアル · v2.0</span><span>このサイトにはユーザー向けドキュメントのみを掲載しており、製品の非公開ソースコードは含まれていません。</span></footer>
 </main>
 </div>
-<script src="./app.js?v=i18n-20260929-2"></script>
+<script src="./app.js?v=flags-20260929-1"></script>
 </body></html>
