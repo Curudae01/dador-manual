@@ -4,6 +4,26 @@ const menuButton=document.getElementById("menuButton");
 const sidebar=document.getElementById("sidebar");
 const searchInput=document.getElementById("searchInput");
 const noResults=document.getElementById("noResults");
+const languageSelect=document.getElementById("languageSelect");
+
+const languagePages={
+  es:"./",
+  en:"./en.html",
+  pt:"./pt.html",
+  de:"./de.html",
+  fr:"./fr.html"
+};
+
+if(languageSelect){
+  const currentLanguage=root.dataset.language||root.lang||"es";
+  languageSelect.value=currentLanguage;
+  languageSelect.addEventListener("change",()=>{
+    const destination=languagePages[languageSelect.value];
+    if(destination){
+      window.location.href=destination;
+    }
+  });
+}
 
 const progress=document.createElement("div");
 progress.className="scroll-progress";
