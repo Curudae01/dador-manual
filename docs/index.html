@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-language="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Manual de usuario del Dador de objetos para Second Life.">
   <meta name="theme-color" content="#6d4aff">
   <title>Dador de objetos · Manual de usuario</title>
-  <link rel="stylesheet" href="./styles.css?v=visual-20260929-2">
+  <link rel="stylesheet" href="./styles.css?v=i18n-20260929-1">
 </head>
 <body>
   <header class="topbar">
@@ -22,6 +22,16 @@
       <label class="search">
         <span>⌕</span>
         <input id="searchInput" type="search" placeholder="Buscar en el manual…" aria-label="Buscar en el manual">
+      </label>
+      <label class="language-control" aria-label="Cambiar idioma">
+        <span class="language-icon">文</span>
+        <select id="languageSelect" class="language-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="de">DE</option>
+          <option value="fr">FR</option>
+        </select>
       </label>
       <button class="icon-button" id="themeButton" aria-label="Cambiar tema">◐</button>
     </div>
@@ -489,6 +499,6 @@ TEMP_Nota de demostración</code></pre>
     </main>
   </div>
 
-  <script src="./app.js?v=visual-20260929-2"></script>
+  <script src="./app.js?v=i18n-20260929-1"></script>
 </body>
 </html>
