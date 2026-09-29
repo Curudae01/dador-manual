@@ -11,7 +11,8 @@ const languagePages={
   en:"./en.html",
   pt:"./pt.html",
   de:"./de.html",
-  fr:"./fr.html"
+  fr:"./fr.html",
+  ja:"./ja.html"
 };
 
 if(languageSelect){
@@ -24,6 +25,17 @@ if(languageSelect){
     }
   });
 }
+
+const uiText={
+  es:{copy:"Copiar",copied:"✓ Copiado",unavailable:"No disponible",light:"Cambiar a modo claro",dark:"Cambiar a modo oscuro"},
+  en:{copy:"Copy",copied:"✓ Copied",unavailable:"Unavailable",light:"Switch to light mode",dark:"Switch to dark mode"},
+  pt:{copy:"Copiar",copied:"✓ Copiado",unavailable:"Indisponível",light:"Mudar para modo claro",dark:"Mudar para modo escuro"},
+  de:{copy:"Kopieren",copied:"✓ Kopiert",unavailable:"Nicht verfügbar",light:"Zum hellen Modus wechseln",dark:"Zum dunklen Modus wechseln"},
+  fr:{copy:"Copier",copied:"✓ Copié",unavailable:"Indisponible",light:"Passer au mode clair",dark:"Passer au mode sombre"},
+  ja:{copy:"コピー",copied:"✓ コピー済み",unavailable:"利用できません",light:"ライトモードに切り替え",dark:"ダークモードに切り替え"}
+};
+const currentLanguage=root.dataset.language||root.lang||"es";
+const labels=uiText[currentLanguage]||uiText.es;
 
 const progress=document.createElement("div");
 progress.className="scroll-progress";
@@ -38,7 +50,7 @@ function syncThemeButton(){
   themeButton.textContent=root.dataset.theme==="dark"?"☀":"◐";
   themeButton.setAttribute(
     "aria-label",
-    root.dataset.theme==="dark"?"Cambiar a modo claro":"Cambiar a modo oscuro"
+    root.dataset.theme==="dark"?labels.light:labels.dark
   );
 }
 syncThemeButton();
@@ -64,18 +76,18 @@ document.querySelectorAll("pre").forEach(pre=>{
   const button=document.createElement("button");
   button.className="copy-button";
   button.type="button";
-  button.textContent="Copiar";
+  button.textContent=labels.copy;
 
   button.addEventListener("click",async()=>{
     const code=pre.querySelector("code")?.innerText||pre.innerText;
 
     try{
       await navigator.clipboard.writeText(code);
-      button.textContent="✓ Copiado";
-      setTimeout(()=>button.textContent="Copiar",1200);
+      button.textContent=labels.copied;
+      setTimeout(()=>button.textContent=labels.copy,1200);
     }
     catch{
-      button.textContent="No disponible";
+      button.textContent=labels.unavailable;
     }
   });
 
