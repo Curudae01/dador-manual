@@ -67,7 +67,7 @@
   </div>
 </section>
 
-<div id="no結果s" class="no-results" hidden><h2>一致する項目がありません</h2><p>別の検索語を試してください。</p></div>
+<div id="noResults" class="no-results" hidden><h2>一致する項目がありません</h2><p>別の検索語を試してください。</p></div>
 
 <section id="primeros-pasos" class="doc-section searchable">
   <div class="section-heading"><span class="step">01</span><div><h2>はじめに</h2><p>内容を確認し、Dador を使用できる状態にします。</p></div></div>
@@ -131,8 +131,8 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=0</code></pre>
     <article><h3>LISTA</h3><code>ACCESO=LISTA</code><p>Lista Autorizados に登録されたアバターだけが使用できます。</p></article>
   </div>
   <h3>Lista Autorizados</h3>
-  <p>Second Life の 使用方法rname を1行につき1名記入します。Display Name は使用しないでください。</p><pre><code>avatar.ejemplo
-OtroUsuario</code></pre><p>空行と # で始まるコメントを使用できます。最大20アバターです。使用方法rname を解決できない場合、修正されるまで LISTA モードはブロックされます。</p>
+  <p>Second Life の Username を1行につき1名記入します。Display Name は使用しないでください。</p><pre><code>avatar.ejemplo
+OtroUsuario</code></pre><p>空行と # で始まるコメントを使用できます。最大20アバターです。Username を解決できない場合、修正されるまで LISTA モードはブロックされます。</p>
 </section>
 
 <section id="menus" class="doc-section searchable">
@@ -220,7 +220,7 @@ TEMP_Nota de demostración</code></pre>
 <section id="problemas" class="doc-section searchable">
   <div class="section-heading"><span class="step">11</span><div><h2>トラブルシューティング</h2><p>よくある問題の多くは、次の確認で解決できます。</p></div></div>
   <details><summary>メニューが表示されない</summary><p>RADIO_USO、ACCESO モード、Dador の読み込み完了、有効な製品の存在、Config Dador にエラーがないことを確認してください。</p></details>
-  <details><summary>「アクセス不可」と表示される</summary><p>GRUPO の場合は Dador のグループとアバターのアクティブグループを確認します。LISTA の場合は Display Name ではなく有効な 使用方法rname を使用します。</p></details>
+  <details><summary>「アクセス不可」と表示される</summary><p>GRUPO の場合は Dador のグループとアバターのアクティブグループを確認します。LISTA の場合は Display Name ではなく有効な Username を使用します。</p></details>
   <details><summary>Dador が使用中と表示される</summary><p>MENUS_SIMULTANEOS=NO では正常です。同時に1人だけが使用できます。</p></details>
   <details><summary>メニューまたは要求が多すぎる</summary><p>同時モードでは、アクティブなメニューセッションは最大20件、待機中の選択は最大20件です。</p></details>
   <details><summary>もっと近づくよう表示される</summary><p>RADIO_USO の範囲内でも、最終受け渡し距離の外にいる場合があります。DISTANCIA_ANEXADO または DISTANCIA_NO_ANEXADO を確認してください。</p></details>
