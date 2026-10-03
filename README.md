@@ -4,6 +4,8 @@ Manual público del **Dador de objetos para Second Life**.
 
 Este repositorio contiene únicamente documentación para usuarios. **No contiene los scripts privados del producto.**
 
+La revisión v2.1 documenta las cuatro animaciones opcionales: `ANIM_PORTAR`, `ANIM_SERVIR`, `ANIM_RECIBIR_ANEXADO` y `ANIM_RECOGER_NO_ANEXADO` pueden dejarse vacías para desactivarlas individualmente.
+
 ## GitHub Pages
 
 El sitio está preparado como web estática dentro de `docs/`.
@@ -27,4 +29,4 @@ La URL prevista será:
 - `docs/app.js` — búsqueda, menú móvil y botones de copiar.
 - `docs/.nojekyll` — publicación estática directa.
 
-Manual actual: **v2.0**.
+Manual actual: **v2.1**.
