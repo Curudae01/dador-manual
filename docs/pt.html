@@ -56,7 +56,7 @@
     <a href="#problemas">Problemas frequentes</a>
     <a href="#referencia">Referência rápida</a>
   </nav>
-  <div class="sidebar-footer"><span class="pill">Manual do utilizador v2.0</span><span class="muted">Dador_Main v1.4.1</span></div>
+  <div class="sidebar-footer"><span class="pill">Manual do utilizador v2.1</span><span class="muted">Dador_Main v1.4.1</span></div>
 </aside>
 
 <main class="content" id="content">
@@ -83,8 +83,8 @@
   <h3>Conteúdo do Dador</h3>
   <p>Estes quatro scripts devem permanecer dentro do Dador:</p>
   <pre><code>Dador_Main v1.4.1
-Dador_Config_Productos v1.3.3
-Dador_Anim_portador v1.3.0
+Dador_Config_Productos v1.3.4
+Dador_Anim_portador v1.3.1
 Dador_Menu_Multiusuario v1.0.1</code></pre>
   <p>Também encontrará Config Dador, Lista Autorizados, as animações utilizadas, os produtos instalados e possíveis componentes TEMP_.</p>
   <div class="callout danger"><strong>Os nomes exatos são obrigatórios</strong><p>A notecard principal deve chamar-se exatamente Config Dador. Se utilizar ACCESO=LISTA, a notecard deve chamar-se exatamente Lista Autorizados. Não mude os nomes dos scripts nem dos componentes TEMP_.</p></div>
@@ -169,20 +169,24 @@ DISTANCIA_ANEXADO=15.0</code></pre></div></div>
 </section>
 
 <section id="animaciones" class="doc-section searchable">
-  <div class="section-heading"><span class="step">06</span><div><h2>Animações</h2><p>Quatro animações independentes com nomes de inventário totalmente configuráveis.</p></div></div>
+  <div class="section-heading"><span class="step">06</span><div><h2>Animações</h2><p>Quatro animações independentes e opcionais, configuradas pelo nome exato no inventário.</p></div></div>
+  <div class="callout info"><strong>Qualquer animação pode ser desativada</strong><p>Deixe o valor de uma animação vazio para que não seja reproduzida. Pode combinar animações ativas e desativadas livremente.</p><pre><code>ANIM_PORTAR=
+ANIM_SERVIR=
+ANIM_RECIBIR_ANEXADO=
+ANIM_RECOGER_NO_ANEXADO=</code></pre></div>
   <div class="feature-list">
-    <article><h3>ANIM_PORTAR</h3><p>Pose permanente do avatar que transporta o Dador anexado. Inicia automaticamente, permanece ativa enquanto estiver anexado e deve estar preparada para loop.</p><pre><code>ANIM_PORTAR=Anim_Portar</code></pre></article>
-    <article><h3>ANIM_SERVIR</h3><p>Animação temporária de servir do portador. Só é usada com o Dador anexado e MENUS_SIMULTANEOS=NO.</p><pre><code>ANIM_SERVIR=Anim_Servir
+    <article><h3>ANIM_PORTAR</h3><p>Pose permanente do avatar que transporta o Dador anexado. Se for utilizada, deve estar preparada para loop. Vazia significa que não será reproduzida uma pose de transporte.</p><pre><code>ANIM_PORTAR=Anim_Portar</code></pre></article>
+    <article><h3>ANIM_SERVIR</h3><p>Animação temporária de servir do portador. Só é usada com o Dador anexado e MENUS_SIMULTANEOS=NO. Vazia significa que o portador não reproduz uma animação de servir.</p><pre><code>ANIM_SERVIR=Anim_Servir
 DURACION_ANIM_SERVIR=5.0</code></pre></article>
-    <article><h3>ANIM_RECIBIR_ANEXADO</h3><p>Animação do recetor quando o Dador está anexado.</p><pre><code>ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
+    <article><h3>ANIM_RECIBIR_ANEXADO</h3><p>Animação do recetor quando o Dador está anexado. Pode ficar vazia.</p><pre><code>ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
 DURACION_ANIM_RECIBIR_ANEXADO=5.0</code></pre></article>
-    <article><h3>ANIM_RECOGER_NO_ANEXADO</h3><p>Animação do recetor quando o Dador está rezzado.</p><pre><code>ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
+    <article><h3>ANIM_RECOGER_NO_ANEXADO</h3><p>Animação do recetor quando o Dador está rezzado. Pode ficar vazia.</p><pre><code>ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
 DURACION_ANIM_RECOGER_NO_ANEXADO=5.0</code></pre></article>
   </div>
-  <p>As três durações temporárias admitem 0.1 .. 60.0 segundos. ANIM_PORTAR não utiliza duração.</p>
-  <h3>Usar animações compradas</h3><p>Não é necessário mudar-lhes o nome. Coloque a animação dentro do Dador e escreva o nome exato do inventário.</p><pre><code>ANIM_RECIBIR_ANEXADO=[Tienda] Take Drink Bento 03</code></pre>
-  <h3>Quando aparece um temporário</h3><pre><code>RETARDO_APARICION_TEMP_ANEXADO=1.3
-RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Ambos os atrasos admitem 0.0 .. 10.0 segundos e não podem superar a duração da animação de receção correspondente.</p>
+  <p>As três durações temporárias continuam a aceitar 0.1 .. 60.0 segundos. Se a animação correspondente estiver vazia, a duração é simplesmente ignorada. ANIM_PORTAR não tem duração.</p>
+  <h3>Utilizar animações compradas</h3><p>Não é necessário mudar o nome. Se uma linha ANIM_* tiver um nome, coloque essa animação dentro do Dador e escreva o nome exato do inventário. Se a linha estiver vazia, não é necessária nenhuma animação para essa função.</p><pre><code>ANIM_RECIBIR_ANEXADO=[Tienda] Take Drink Bento 03</code></pre>
+  <h3>Quando aparece um objeto temporário</h3><pre><code>RETARDO_APARICION_TEMP_ANEXADO=1.3
+RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Com uma animação de receção ativa, o atraso deve respeitar a duração dessa animação. Se a animação de receção correspondente estiver vazia, não existe animação com que sincronizar: o temporário aparece imediatamente e esse atraso não intervém.</p>
 </section>
 
 <section id="mensajes" class="doc-section searchable">
@@ -252,10 +256,10 @@ TEMP_Nota de demostración</code></pre>
     <tr><td><code>RADIO_USO</code></td><td>0.5 .. 300.0</td></tr>
     <tr><td><code>DISTANCIA_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
     <tr><td><code>DISTANCIA_NO_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
-    <tr><td><code>ANIM_PORTAR</code></td><td>Nome exato da animação · loop</td></tr>
-    <tr><td><code>ANIM_SERVIR</code></td><td>Nome exato da animação</td></tr>
-    <tr><td><code>ANIM_RECIBIR_ANEXADO</code></td><td>Nome exato da animação</td></tr>
-    <tr><td><code>ANIM_RECOGER_NO_ANEXADO</code></td><td>Nome exato da animação</td></tr>
+    <tr><td><code>ANIM_PORTAR</code></td><td>Nome exato da animação · loop · ou vazio</td></tr>
+    <tr><td><code>ANIM_SERVIR</code></td><td>Nome exato da animação · ou vazio</td></tr>
+    <tr><td><code>ANIM_RECIBIR_ANEXADO</code></td><td>Nome exato da animação · ou vazio</td></tr>
+    <tr><td><code>ANIM_RECOGER_NO_ANEXADO</code></td><td>Nome exato da animação · ou vazio</td></tr>
     <tr><td><code>DURACION_ANIM_SERVIR</code></td><td>0.1 .. 60.0</td></tr>
     <tr><td><code>DURACION_ANIM_RECIBIR_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
     <tr><td><code>DURACION_ANIM_RECOGER_NO_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
@@ -264,7 +268,7 @@ TEMP_Nota de demostración</code></pre>
   </tbody></table></div>
 </section>
 
-<footer class="site-footer"><strong>Dador de objetos</strong><span>Manual público do utilizador · v2.0</span><span>Este site contém documentação de utilizador, não o código-fonte privado do produto.</span></footer>
+<footer class="site-footer"><strong>Dador de objetos</strong><span>Manual público do utilizador · v2.1</span><span>Este site contém documentação de utilizador, não o código-fonte privado do produto.</span></footer>
 </main>
 </div>
 <script src="./app.js?v=flags-20260929-1"></script>
