@@ -411,6 +411,8 @@ Animaciones propias (opcionales)</code></pre>
 
         <h3>4. Configura Config Temporal</h3>
         <p>Los parámetros generales deben ir antes de comenzar la secuencia <code>ANIMACIONn/TIEMPOn</code>.</p>
+        <p>Si el temporal no contiene animaciones propias, usa el comportamiento final por defecto <code>DESANEXAR_AL_FINAL=SI</code> y no necesitas frase propia, <code>Config Temporal</code> puede omitirse. Si quieres que permanezca anexado con <code>DESANEXAR_AL_FINAL=NO</code>, emitir <code>FRASE_COGER</code> o controlar una secuencia, sí necesitas <code>Config Temporal</code>.</p>
+        <p><code>Config Temporal</code> admite hasta <strong>100 líneas físicas</strong>. Los tiempos usan punto decimal, por ejemplo <code>4.2</code>.</p>
         <div class="two-col">
           <div>
             <h3>Sin animaciones propias</h3>
