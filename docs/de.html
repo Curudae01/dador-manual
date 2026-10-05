@@ -239,6 +239,8 @@ Eigene Animationen (optional)</code></pre>
 
   <h3>4. Config Temporal konfigurieren</h3>
   <p>Allgemeine Parameter müssen vor Beginn der Folge <code>ANIMACIONn/TIEMPOn</code> stehen.</p>
+  <p>Hat das temporäre Objekt keine eigenen Animationen, verwendet das Standard-Endverhalten <code>DESANEXAR_AL_FINAL=SI</code> und benötigt keine eigene Aufnahme-Nachricht, kann <code>Config Temporal</code> weggelassen werden. Für <code>DESANEXAR_AL_FINAL=NO</code>, <code>FRASE_COGER</code> oder eine gesteuerte Sequenz ist <code>Config Temporal</code> erforderlich.</p>
+  <p><code>Config Temporal</code> unterstützt bis zu <strong>100 physische Zeilen</strong>. Für Zeiten wird ein Dezimalpunkt verwendet, z. B. <code>4.2</code>.</p>
   <div class="two-col">
     <div><h3>Ohne eigene Animationen</h3><pre><code>FRASE_COGER=
 DISTANCIA_MENSAJE=20
