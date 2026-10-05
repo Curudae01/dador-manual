@@ -49,14 +49,14 @@
     <a href="#animaciones">アニメーション</a>
     <a href="#mensajes">メッセージ</a>
     <div class="nav-group">製品</div>
-    <a href="#productos">製品を追加</a>
+    <a href="#productos">製品を作成</a>
     <a href="#temporales">一時オブジェクト</a>
     <div class="nav-group">使用方法</div>
     <a href="#uso">REZ設置・装着</a>
     <a href="#problemas">トラブルシューティング</a>
     <a href="#referencia">クイックリファレンス</a>
   </nav>
-  <div class="sidebar-footer"><span class="pill">ユーザーマニュアル v2.1</span><span class="muted">Dador_Main v1.4.1</span></div>
+  <div class="sidebar-footer"><span class="pill">ユーザーマニュアル v2.2</span><span class="muted">Dador_Main v1.4.1</span></div>
 </aside>
 
 <main class="content" id="content">
@@ -205,10 +205,99 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>受け取りアニメーシ
 </section>
 
 <section id="productos" class="doc-section searchable">
-  <div class="section-heading"><span class="step">08</span><div><h2>製品を追加</h2><p>Dador は、あらかじめ対応するよう準備された製品を使用する設計です。</p></div></div>
-  <ol><li>Dador をREZします。</li><li>編集して Contents を開きます。</li><li>準備済みの製品を Dador の中へ入れます。</li><li>TEMP_ コンポーネントがある場合は、それも一緒に入れます。</li><li>名前、説明、スクリプト、アニメーション、内部コンテンツを変更しないでください。</li><li>カタログが再読み込みされるまで数秒待ちます。</li><li>Dador にタッチし、製品がメニューに表示されることを確認します。</li></ol>
+  <div class="section-heading"><span class="step">08</span><div><h2>製品を作成して追加する</h2><p>Dador に対応するオブジェクトまたは notecard をゼロから準備する方法です。</p></div></div>
+
+  <div class="callout info"><strong>必要なもの</strong><p>通常のコピーだけを配布する場合は、製品本体と説明欄を準備すれば十分です。製品に一時コンポーネントが必要な場合は、システムに付属する <code>Script_Temporal</code> と、必要に応じて名前が完全に <code>Config Temporal</code> の notecard を使用します。このマニュアルでは設定方法を説明します。スクリプトコードを編集する必要はありません。</p></div>
+
+  <h3>1. 製品が何を渡すか決める</h3>
+  <p>Dador は<strong>メイン要素の説明欄</strong>を読み、2つの指定を使用します。<code>T</code> は一時部分、<code>C</code> は恒久コピーです。</p>
+  <div class="table-wrap"><table><thead><tr><th>説明</th><th>結果</th><th>代表的な用途</th></tr></thead><tbody>
+    <tr><td><code>T=NO;C=SI</code></td><td>恒久コピーのみ</td><td>オブジェクトまたは notecard をインベントリへ渡す</td></tr>
+    <tr><td><code>T=SI;C=NO</code></td><td>一時オブジェクトのみ</td><td>一時的に装着され、コピーを残さない prop</td></tr>
+    <tr><td><code>T=SI;C=SI</code></td><td>一時 + 恒久コピー</td><td>一時シーンとインベントリへのコピーを両方使用</td></tr>
+  </tbody></table></div>
+  <p>説明欄が空の場合は <code>T=NO;C=SI</code> と同じ扱いです。<code>T=NO;C=NO</code> は使用しないでください。渡すものが何もないため Dador は無効と判断します。</p>
+
+  <h3>2. 製品構成を選ぶ</h3>
+  <div class="cards four">
+    <article><h3>コピー用オブジェクト</h3><pre><code>Beer
+Description: T=NO;C=SI</code></pre><p><code>Script_Temporal</code> は不要です。</p></article>
+    <article><h3>一時オブジェクト</h3><pre><code>Beer
+Description: T=SI;C=NO</code></pre><p><code>TEMP_Beer</code> が存在しない場合、メインオブジェクト自身を一時オブジェクトとして使用できます。</p></article>
+    <article><h3>オブジェクト + TEMP_</h3><pre><code>Beer
+TEMP_Beer</code></pre><p><code>TEMP_Beer</code> が存在する場合、Dador はそれを一時コンポーネントとして優先します。メニューに表示される製品は <code>Beer</code> のままです。</p></article>
+    <article><h3>Notecard + TEMP_</h3><pre><code>Beer recipe
+TEMP_Beer recipe</code></pre><p><code>T=SI</code> の notecard では <code>TEMP_&lt;正確な名前&gt;</code> のオブジェクトが必須です。</p></article>
+  </div>
+
+  <h3>3. 一時オブジェクトを準備する</h3>
+  <p>一時コンポーネントとして動作するオブジェクトには、一時用の中核と、必要に応じて設定とアニメーションを入れます。</p>
+  <pre><code>Script_Temporal
+Config Temporal
+独自アニメーション（任意）</code></pre>
+  <div class="callout danger"><strong>名前は完全一致</strong><p>notecard の名前は必ず完全に <code>Config Temporal</code> にしてください。<code>TEMP_</code> プレフィックスもそのまま使用し、その後ろにメイン製品の完全な名前を続けます。</p></div>
+
+  <h3>4. Config Temporal を設定する</h3>
+  <p>一般パラメータは <code>ANIMACIONn/TIEMPOn</code> シーケンスを始める前に記述します。</p>
+  <div class="two-col">
+    <div><h3>独自アニメーションなし</h3><pre><code>FRASE_COGER=
+DISTANCIA_MENSAJE=20
+DESANEXAR_AL_FINAL=SI
+
+ANIMACION1=
+TIEMPO1=</code></pre></div>
+    <div><h3>アニメーション1つ</h3><pre><code>FRASE_COGER=ビールを受け取りました。
+DISTANCIA_MENSAJE=20
+DESANEXAR_AL_FINAL=NO
+
+ANIMACION1=BRAZO COGER
+TIEMPO1=4.2</code></pre></div>
+  </div>
+
+  <div class="feature-list">
+    <article><h3>FRASE_COGER</h3><p>一時オブジェクト自身が attach の約1秒後に発言するテキストです。空欄なら発言しません。</p></article>
+    <article><h3>DISTANCIA_MENSAJE</h3><p><code>10</code>、<code>20</code>、<code>100</code> のみ使用できます。省略時は <code>20</code> です。</p></article>
+    <article><h3>DESANEXAR_AL_FINAL</h3><p><code>SI</code> は終了時に一時オブジェクトを非表示にして解除します。<code>NO</code> はアバターが自分で外すまで表示・装着を維持します。</p></article>
+    <article><h3>ANIMACIONn / TIEMPOn</h3><p>最大10個。1から連番で指定します。実際の各時間は <code>0.1</code>〜<code>60.0</code> 秒です。</p></article>
+  </div>
+
+  <div class="callout warning"><strong>2つのメッセージ距離を混同しないでください</strong><p><code>DISTANCIA_MENSAJE</code> は <code>Config Temporal</code> 用です。末尾に S がある <code>DISTANCIA_MENSAJES</code> は <code>Config Dador</code> 用です。別のパラメータです。</p></div>
+
+  <h3>5. 一時アニメーションのルール</h3>
+  <ul>
+    <li>ペアは連続して記述します。<code>ANIMACION1</code> + <code>TIEMPO1</code>、次に <code>ANIMACION2</code> + <code>TIEMPO2</code> の順です。</li>
+    <li>アニメーションと時間の間に <code>FRASE_COGER</code>、<code>DISTANCIA_MENSAJE</code>、<code>DESANEXAR_AL_FINAL</code> を挟まないでください。</li>
+    <li>名前は一時オブジェクト内のアニメーション名と完全に一致させます。</li>
+    <li><code>ANIMACION1=</code> + <code>TIEMPO1=</code> のような空ペアはシーケンスを明示的に終了し、インベントリに未使用アニメーションが残っていても何も実行しない設定にできます。</li>
+    <li>空ペアの後に新しいアニメーションを追加しないでください。</li>
+  </ul>
+
+  <h3>6. 権限を確認する</h3>
+  <p>Dador はコピー配布と一時オブジェクト生成に必要な権限を確認します。一時用に使う要素は、それと一緒に移動する必要がある内容も含めて <strong>Copy + Transfer</strong> を許可する必要があります。準備後に権限を変更した場合は、完全なテストをやり直してください。</p>
+
+  <h3>7. Dador に入れる前に製品をテストする</h3>
+  <p><code>Script_Temporal v2.6.4</code> を使う場合、一時オブジェクトを手動で REZ します。Dador の起動データを受け取らないため<strong>準備モード</strong>になり、装着、権限要求、アニメーション実行、自動削除は行いません。</p>
+  <p>診断は T/C 説明、<code>Config Temporal</code>、各パラメータ、アニメーション、製品全体の状態を確認します。すべて正しければ次のような表示になります。</p>
+  <pre><code>OK: T=SI;C=SI (temporal + copia).
+PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+RESULTADO: LISTO para introducir en el Dador.
+MEM: usada=... libre=...</code></pre>
+  <p><code>RESULTADO: NO LISTO</code> が表示された場合は、示されたエラーを先に修正してください。インベントリ変更時には診断が再実行され、準備モード中は名前と説明も監視されます。</p>
+
+  <h3>8. 製品を Dador に入れる</h3>
+  <ol>
+    <li>診断で <code>LISTO</code> が表示されたら、REZしていたオブジェクトを取り戻します。</li>
+    <li>Dador を編集して <strong>Contents</strong> を開きます。</li>
+    <li>メイン製品を追加します。</li>
+    <li>別の <code>TEMP_</code> コンポーネントを使う場合は、それも追加します。</li>
+    <li>テスト済みの名前、説明、スクリプト、notecard、アニメーション、権限は変更しません。</li>
+    <li>カタログが再読み込みされるまで数秒待ちます。</li>
+    <li>Dador にタッチし、メイン製品がメニューに表示されることを確認します。</li>
+    <li>実際に配布し、一時部分と恒久コピーの両方を必要に応じて確認します。</li>
+  </ol>
+
   <div class="stats"><div><strong>30</strong><span>最大製品数</span></div><div><strong>128</strong><span>インベントリ総数の上限</span></div></div>
-  <div class="callout warning"><strong>互換性</strong><p>通常の Second Life オブジェクトすべてが自動的に Dador 対応になるわけではありません。</p></div>
+  <div class="callout info"><strong>簡単なまとめ</strong><p>最初に <code>T/C</code> を決めます。一時部分がある場合はそれを準備し、<code>Config Temporal</code> を設定して REZ し、<code>RESULTADO: LISTO</code> を確認します。その後で製品と必要な <code>TEMP_</code> を Dador に入れ、完全な配布テストを行います。</p></div>
 </section>
 
 <section id="temporales" class="doc-section searchable">
@@ -268,7 +357,7 @@ TEMP_Nota de demostración</code></pre>
   </tbody></table></div>
 </section>
 
-<footer class="site-footer"><strong>Dador de objetos</strong><span>公開ユーザーマニュアル · v2.1</span><span>このサイトにはユーザー向けドキュメントのみを掲載しており、製品の非公開ソースコードは含まれていません。</span></footer>
+<footer class="site-footer"><strong>Dador de objetos</strong><span>公開ユーザーマニュアル · v2.2</span><span>このサイトにはユーザー向けドキュメントのみを掲載しており、製品の非公開ソースコードは含まれていません。</span></footer>
 </main>
 </div>
 <script src="./app.js?v=flags-20260929-1"></script>
