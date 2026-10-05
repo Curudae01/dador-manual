@@ -239,6 +239,8 @@ Animations propres (facultatives)</code></pre>
 
   <h3>4. Configurer Config Temporal</h3>
   <p>Les paramètres généraux doivent apparaître avant de commencer la séquence <code>ANIMACIONn/TIEMPOn</code>.</p>
+  <p>Si l’objet temporaire ne possède pas d’animations propres, utilise le comportement final par défaut <code>DESANEXAR_AL_FINAL=SI</code> et n’a pas besoin de phrase propre, <code>Config Temporal</code> peut être omise. Pour rester attaché avec <code>DESANEXAR_AL_FINAL=NO</code>, émettre <code>FRASE_COGER</code> ou contrôler une séquence, <code>Config Temporal</code> est nécessaire.</p>
+  <p><code>Config Temporal</code> accepte jusqu’à <strong>100 lignes physiques</strong>. Utilisez un point décimal pour les durées, par exemple <code>4.2</code>.</p>
   <div class="two-col">
     <div><h3>Sans animations propres</h3><pre><code>FRASE_COGER=
 DISTANCIA_MENSAJE=20
