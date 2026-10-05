@@ -55,7 +55,7 @@
         <a href="#animaciones">Animaciones</a>
         <a href="#mensajes">Mensajes</a>
         <div class="nav-group">Productos</div>
-        <a href="#productos">Añadir productos</a>
+        <a href="#productos">Crear productos</a>
         <a href="#temporales">Objetos temporales</a>
         <div class="nav-group">Uso</div>
         <a href="#uso">Rezzado y anexado</a>
@@ -63,7 +63,7 @@
         <a href="#referencia">Referencia rápida</a>
       </nav>
       <div class="sidebar-footer">
-        <span class="pill">Manual v2.1</span>
+        <span class="pill">Manual v2.2</span>
         <span class="muted">Dador_Main v1.4.1</span>
       </div>
     </aside>
@@ -349,17 +349,132 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Con una animación de recep
       <section id="productos" class="doc-section searchable">
         <div class="section-heading">
           <span class="step">08</span>
-          <div><h2>Añadir productos</h2><p>El Dador trabaja con productos ya preparados y compatibles.</p></div>
+          <div><h2>Crear y añadir productos</h2><p>Cómo preparar desde cero un objeto o una notecard compatible con el Dador.</p></div>
         </div>
 
+        <div class="callout info">
+          <strong>Qué necesitas</strong>
+          <p>Para una copia normal basta con preparar el producto y su descripción. Si el producto usa una parte temporal, utiliza el <code>Script_Temporal</code> suministrado con el sistema y, cuando corresponda, una notecard llamada exactamente <code>Config Temporal</code>. El manual explica la configuración; no necesitas editar el código del script.</p>
+        </div>
+
+        <h3>1. Decide qué debe entregar el producto</h3>
+        <p>El Dador lee la <strong>descripción del elemento principal</strong> y usa dos indicadores: <code>T</code> para la parte temporal y <code>C</code> para la copia permanente.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Descripción</th><th>Resultado</th><th>Uso típico</th></tr></thead>
+            <tbody>
+              <tr><td><code>T=NO;C=SI</code></td><td>Solo copia permanente</td><td>Objeto o notecard entregado al inventario</td></tr>
+              <tr><td><code>T=SI;C=NO</code></td><td>Solo temporal</td><td>Prop que aparece anexado y no deja copia</td></tr>
+              <tr><td><code>T=SI;C=SI</code></td><td>Temporal + copia permanente</td><td>Escena temporal y además una copia en inventario</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Una descripción vacía equivale a <code>T=NO;C=SI</code>. No uses <code>T=NO;C=NO</code>: el Dador lo considera inválido porque no habría nada que entregar.</p>
+
+        <h3>2. Elige la estructura del producto</h3>
+        <div class="cards four">
+          <article>
+            <h3>Objeto con copia</h3>
+            <pre><code>Cerveza
+Descripción: T=NO;C=SI</code></pre>
+            <p>No necesita <code>Script_Temporal</code>.</p>
+          </article>
+          <article>
+            <h3>Objeto temporal</h3>
+            <pre><code>Cerveza
+Descripción: T=SI;C=NO</code></pre>
+            <p>Si no existe <code>TEMP_Cerveza</code>, el propio objeto puede actuar como temporal.</p>
+          </article>
+          <article>
+            <h3>Objeto + TEMP_</h3>
+            <pre><code>Cerveza
+TEMP_Cerveza</code></pre>
+            <p>Si existe <code>TEMP_Cerveza</code>, el Dador lo prefiere como componente temporal. El producto visible en el menú sigue siendo <code>Cerveza</code>.</p>
+          </article>
+          <article>
+            <h3>Notecard + TEMP_</h3>
+            <pre><code>Receta de cerveza
+TEMP_Receta de cerveza</code></pre>
+            <p>Para una notecard con <code>T=SI</code>, el objeto <code>TEMP_&lt;nombre exacto&gt;</code> es obligatorio.</p>
+          </article>
+        </div>
+
+        <h3>3. Prepara el objeto temporal</h3>
+        <p>El objeto que vaya a funcionar como temporal debe contener el núcleo temporal y, si necesita configuración propia, la notecard y las animaciones correspondientes:</p>
+        <pre><code>Script_Temporal
+Config Temporal
+Animaciones propias (opcionales)</code></pre>
+        <div class="callout danger">
+          <strong>Nombres exactos</strong>
+          <p>La notecard debe llamarse exactamente <code>Config Temporal</code>. El prefijo <code>TEMP_</code> también debe conservarse exactamente y seguido del nombre completo del producto principal.</p>
+        </div>
+
+        <h3>4. Configura Config Temporal</h3>
+        <p>Los parámetros generales deben ir antes de comenzar la secuencia <code>ANIMACIONn/TIEMPOn</code>.</p>
+        <div class="two-col">
+          <div>
+            <h3>Sin animaciones propias</h3>
+            <pre><code>FRASE_COGER=
+DISTANCIA_MENSAJE=20
+DESANEXAR_AL_FINAL=SI
+
+ANIMACION1=
+TIEMPO1=</code></pre>
+          </div>
+          <div>
+            <h3>Con una animación</h3>
+            <pre><code>FRASE_COGER=Has cogido una cerveza.
+DISTANCIA_MENSAJE=20
+DESANEXAR_AL_FINAL=NO
+
+ANIMACION1=BRAZO COGER
+TIEMPO1=4.2</code></pre>
+          </div>
+        </div>
+
+        <div class="feature-list">
+          <article><h3>FRASE_COGER</h3><p>Texto que dice el propio temporal aproximadamente un segundo después del attach. Puede quedar vacío para no decir nada.</p></article>
+          <article><h3>DISTANCIA_MENSAJE</h3><p>Admite únicamente <code>10</code>, <code>20</code> o <code>100</code>. Si se omite, usa <code>20</code>.</p></article>
+          <article><h3>DESANEXAR_AL_FINAL</h3><p><code>SI</code> hace que el temporal se oculte y se desanexe al terminar. <code>NO</code> lo deja visible y anexado hasta que el avatar lo retire.</p></article>
+          <article><h3>ANIMACIONn / TIEMPOn</h3><p>Hasta 10 animaciones, numeradas consecutivamente desde 1. Cada tiempo real debe estar entre <code>0.1</code> y <code>60.0</code> segundos.</p></article>
+        </div>
+
+        <div class="callout warning">
+          <strong>No confundas las dos distancias de mensajes</strong>
+          <p><code>DISTANCIA_MENSAJE</code> pertenece a <code>Config Temporal</code>. <code>DISTANCIA_MENSAJES</code>, con S final, pertenece a <code>Config Dador</code>. Son parámetros distintos, porque aparentemente una letra era demasiado poco sufrimiento para la especie humana.</p>
+        </div>
+
+        <h3>5. Reglas de las animaciones del temporal</h3>
+        <ul>
+          <li>Los pares deben ser consecutivos: <code>ANIMACION1</code> + <code>TIEMPO1</code>, después <code>ANIMACION2</code> + <code>TIEMPO2</code>, etc.</li>
+          <li>No introduzcas <code>FRASE_COGER</code>, <code>DISTANCIA_MENSAJE</code> o <code>DESANEXAR_AL_FINAL</code> entre una animación y su tiempo.</li>
+          <li>El nombre debe coincidir exactamente con una animación existente dentro del objeto temporal.</li>
+          <li>Un par vacío como <code>ANIMACION1=</code> + <code>TIEMPO1=</code> cierra expresamente la secuencia y permite no ejecutar animaciones aunque queden animaciones sin usar en el inventario.</li>
+          <li>Después de un par vacío no declares nuevas animaciones.</li>
+        </ul>
+
+        <h3>6. Comprueba permisos</h3>
+        <p>El Dador valida los permisos necesarios para poder entregar copias y crear temporales. Los elementos utilizados como temporales deben permitir <strong>Copy + Transfer</strong>, incluido el contenido que deba viajar con ellos. Si cambias permisos después de preparar el producto, repite la prueba completa.</p>
+
+        <h3>7. Prueba el producto antes de meterlo en el Dador</h3>
+        <p>Con <code>Script_Temporal v2.6.4</code>, rezea manualmente el objeto temporal. Al no recibir los datos de arranque del Dador entra en <strong>modo preparación</strong>: no se anexa, no solicita permisos, no ejecuta animaciones y no se elimina.</p>
+        <p>El diagnóstico comprueba la descripción T/C, <code>Config Temporal</code>, sus parámetros, las animaciones y el estado general del producto. Cuando todo está correcto debe aparecer algo como:</p>
+        <pre><code>OK: T=SI;C=SI (temporal + copia).
+PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+RESULTADO: LISTO para introducir en el Dador.
+MEM: usada=... libre=...</code></pre>
+        <p>Si aparece <code>RESULTADO: NO LISTO</code>, corrige primero los errores indicados. El diagnóstico vuelve a ejecutarse al cambiar el inventario y también vigila nombre y descripción mientras el objeto está en preparación.</p>
+
+        <h3>8. Introduce el producto en el Dador</h3>
         <ol>
-          <li>Rezea el Dador.</li>
-          <li>Edítalo y abre <strong>Contenido</strong>.</li>
-          <li>Arrastra dentro el producto preparado.</li>
-          <li>Si incluye un componente <code>TEMP_</code>, introdúcelo también.</li>
-          <li>No cambies nombres, descripción, scripts, animaciones ni contenido interno.</li>
+          <li>Cuando el diagnóstico indique <code>LISTO</code>, recoge el objeto si lo tenías rezzado.</li>
+          <li>Edita el Dador y abre <strong>Contenido</strong>.</li>
+          <li>Introduce el producto principal.</li>
+          <li>Si utiliza un componente separado <code>TEMP_</code>, introdúcelo también.</li>
+          <li>Conserva nombres, descripción, scripts, notecards, animaciones y permisos ya probados.</li>
           <li>Espera unos segundos mientras se recarga el catálogo.</li>
-          <li>Toca el Dador y comprueba que el producto aparece en el menú.</li>
+          <li>Toca el Dador y comprueba que el producto principal aparece en el menú.</li>
+          <li>Realiza una entrega real y verifica tanto la parte temporal como la copia permanente que corresponda.</li>
         </ol>
 
         <div class="stats">
@@ -367,9 +482,9 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Con una animación de recep
           <div><strong>128</strong><span>elementos totales de inventario</span></div>
         </div>
 
-        <div class="callout warning">
-          <strong>Compatibilidad</strong>
-          <p>No todos los objetos normales de Second Life son automáticamente productos compatibles.</p>
+        <div class="callout info">
+          <strong>Resumen rápido</strong>
+          <p>Primero decide <code>T/C</code>. Después prepara el temporal si existe, configura <code>Config Temporal</code>, rezea y espera <code>RESULTADO: LISTO</code>. Solo entonces introduce el producto y su posible <code>TEMP_</code> en el Dador y prueba una entrega completa.</p>
         </div>
       </section>
 
@@ -491,7 +606,7 @@ TEMP_Nota de demostración</code></pre>
 
       <footer class="site-footer">
         <strong>Dador de objetos</strong>
-        <span>Manual público para Second Life · v2.1</span>
+        <span>Manual público para Second Life · v2.2</span>
         <span>Este sitio contiene documentación de usuario, no el código privado del producto.</span>
       </footer>
     </main>
