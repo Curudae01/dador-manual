@@ -239,6 +239,8 @@ Animações próprias (opcionais)</code></pre>
 
   <h3>4. Configure Config Temporal</h3>
   <p>Os parâmetros gerais devem aparecer antes de começar a sequência <code>ANIMACIONn/TIEMPOn</code>.</p>
+  <p>Se o temporário não tiver animações próprias, usar o comportamento final por defeito <code>DESANEXAR_AL_FINAL=SI</code> e não precisar de frase própria, <code>Config Temporal</code> pode ser omitida. Para permanecer anexado com <code>DESANEXAR_AL_FINAL=NO</code>, emitir <code>FRASE_COGER</code> ou controlar uma sequência, é necessária <code>Config Temporal</code>.</p>
+  <p><code>Config Temporal</code> admite até <strong>100 linhas físicas</strong>. Use ponto decimal nos tempos, por exemplo <code>4.2</code>.</p>
   <div class="two-col">
     <div><h3>Sem animações próprias</h3><pre><code>FRASE_COGER=
 DISTANCIA_MENSAJE=20
