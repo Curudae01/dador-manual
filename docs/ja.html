@@ -239,6 +239,8 @@ Config Temporal
 
   <h3>4. Config Temporal を設定する</h3>
   <p>一般パラメータは <code>ANIMACIONn/TIEMPOn</code> シーケンスを始める前に記述します。</p>
+  <p>一時オブジェクトに独自アニメーションがなく、終了動作が既定の <code>DESANEXAR_AL_FINAL=SI</code> で、独自の受け取りメッセージも不要なら <code>Config Temporal</code> は省略できます。<code>DESANEXAR_AL_FINAL=NO</code> で装着を維持する場合、<code>FRASE_COGER</code> を使う場合、またはシーケンスを制御する場合は <code>Config Temporal</code> が必要です。</p>
+  <p><code>Config Temporal</code> は最大 <strong>100物理行</strong>です。時間の小数にはピリオドを使用します。例: <code>4.2</code>。</p>
   <div class="two-col">
     <div><h3>独自アニメーションなし</h3><pre><code>FRASE_COGER=
 DISTANCIA_MENSAJE=20
