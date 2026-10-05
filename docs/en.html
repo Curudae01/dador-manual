@@ -239,6 +239,8 @@ Own animations (optional)</code></pre>
 
   <h3>4. Configure Config Temporal</h3>
   <p>General parameters must appear before the <code>ANIMACIONn/TIEMPOn</code> sequence begins.</p>
+  <p>If the temporary object has no own animations, uses the default final behavior <code>DESANEXAR_AL_FINAL=SI</code> and needs no pickup phrase, <code>Config Temporal</code> may be omitted. If it must remain attached with <code>DESANEXAR_AL_FINAL=NO</code>, emit <code>FRASE_COGER</code> or control a sequence, then <code>Config Temporal</code> is required.</p>
+  <p><code>Config Temporal</code> supports up to <strong>100 physical lines</strong>. Use a decimal point for times, for example <code>4.2</code>.</p>
   <div class="two-col">
     <div><h3>Without own animations</h3><pre><code>FRASE_COGER=
 DISTANCIA_MENSAJE=20
