@@ -1,6 +1,6 @@
-# Dador de objetos — Manual público
+# Delivery — Manual público
 
-Manual público del **Dador de objetos para Second Life**.
+Manual público del **Delivery para Second Life**.
 
 Este repositorio contiene únicamente documentación para usuarios. **No contiene los scripts privados del producto.**
 
