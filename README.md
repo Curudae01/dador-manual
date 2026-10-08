@@ -8,6 +8,41 @@ La revisión v2.2 amplía el manual con una guía completa para crear y preparar
 
 También conserva la documentación de las cuatro animaciones opcionales del Dador: `ANIM_PORTAR`, `ANIM_SERVIR`, `ANIM_RECIBIR_ANEXADO` y `ANIM_RECOGER_NO_ANEXADO` pueden dejarse vacías para desactivarlas individualmente.
 
+## Contrato técnico por idioma
+
+La explicación del manual se muestra en el idioma elegido, pero los literales técnicos siguen la edición real del producto:
+
+- **Español** (`index.html`): usa el contrato técnico español.
+- **Inglés, portugués, alemán, francés y japonés**: usan el contrato técnico inglés.
+
+Por tanto, fuera de la página española se muestran los nombres y valores reales de la edición inglesa, por ejemplo:
+
+~~~text
+Dador Config
+Authorized Users
+Temporary Config
+
+Dador_Config_Products
+Dador_Carrier_Animation
+Dador_Multiuser_Menu
+Temporary_Script
+
+ACCESS=ALL
+SIMULTANEOUS_MENUS=NO
+AUTOMATIC_MESSAGE=YES
+
+TEMP=NO;COPY=YES
+TEMP=YES;COPY=NO
+TEMP=YES;COPY=YES
+
+PICKUP_MESSAGE=
+DETACH_AT_END=NO
+ANIMATION1=
+DURATION1=
+~~~
+
+Los protocolos internos `DADOR-SPLIT-P3`, `DADOR-TEMP-P2`, `TEMP-OBJ-P1` y el prefijo `TEMP_` se conservan sin cambios.
+
 ## GitHub Pages
 
 El sitio está preparado como web estática dentro de `docs/`.
