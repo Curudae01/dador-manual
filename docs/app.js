@@ -36,6 +36,8 @@ const uiText={
   ja:{copy:"コピー",copied:"✓ コピー済み",unavailable:"利用できません",light:"ライトモードに切り替え",dark:"ダークモードに切り替え"}
 };
 const currentLanguage=root.dataset.language||root.lang||"es";
+const technicalLanguage=currentLanguage==="es"?"es":"en";
+root.dataset.technicalLanguage=technicalLanguage;
 const labels=uiText[currentLanguage]||uiText.es;
 
 function syncLanguageDropdown(){
