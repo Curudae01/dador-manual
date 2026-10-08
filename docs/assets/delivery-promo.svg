@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+<title id="title">Delivery</title>
+<desc id="desc">Promotional artwork with a glowing gift being exchanged at sunset.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#151036"/>
+    <stop offset=".42" stop-color="#4b1f73"/>
+    <stop offset=".72" stop-color="#b74a82"/>
+    <stop offset="1" stop-color="#ff9c5a"/>
+  </linearGradient>
+  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#24143a" stop-opacity=".2"/>
+    <stop offset="1" stop-color="#090813" stop-opacity=".88"/>
+  </linearGradient>
+  <linearGradient id="gift" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".42" stop-color="#e9c7ff"/>
+    <stop offset=".68" stop-color="#9d5cff"/>
+    <stop offset="1" stop-color="#5c2cca"/>
+  </linearGradient>
+  <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f6c0a4"/>
+    <stop offset="1" stop-color="#ad684d"/>
+  </linearGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="13" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="5"/>
+  </filter>
+</defs>
+
+<rect width="1400" height="760" rx="36" fill="url(#sky)"/>
+<circle cx="1160" cy="175" r="120" fill="#ffcf8e" opacity=".17"/>
+<circle cx="230" cy="120" r="155" fill="#7f5cff" opacity=".2"/>
+<path d="M0 530 C180 470 330 510 500 485 C690 455 800 520 980 470 C1160 420 1270 465 1400 430 V760 H0Z" fill="url(#ground)"/>
+
+<g opacity=".4" fill="#120d28">
+  <rect x="70" y="315" width="58" height="215" rx="6"/><rect x="135" y="270" width="82" height="260" rx="6"/>
+  <rect x="1190" y="300" width="68" height="230" rx="6"/><rect x="1264" y="245" width="88" height="285" rx="6"/>
+  <path d="M1080 525v-90h18v90zm42 0v-135h18v135zm-965 0v-95h18v95z"/>
+</g>
+
+<g opacity=".72" stroke="#ffca85" stroke-width="4" fill="#ffd39d">
+  <circle cx="115" cy="150" r="6"/><circle cx="205" cy="190" r="6"/><circle cx="310" cy="125" r="6"/>
+  <circle cx="1080" cy="125" r="6"/><circle cx="1210" cy="185" r="6"/><circle cx="1295" cy="118" r="6"/>
+  <path d="M115 156v86M205 196v72M310 131v95M1080 131v83M1210 191v73M1295 124v94"/>
+</g>
+
+<!-- Left avatar -->
+<g transform="translate(235 248)">
+  <ellipse cx="0" cy="245" rx="150" ry="205" fill="#0c0b14" opacity=".32" filter="url(#soft)"/>
+  <circle cx="0" cy="0" r="58" fill="url(#skin)"/>
+  <path d="M-54 -13 C-66 -82 30 -96 58 -37 C28 -53 4 -56 -17 -45 C-7 -22 -25 -6 -54 -13Z" fill="#722015"/>
+  <path d="M-10 62 C-90 84 -112 180 -104 300 L-48 304 L-20 160 L22 160 L52 304 L112 302 C116 181 84 90 14 62Z" fill="#17141d"/>
+  <path d="M-42 87 L-10 151 L22 151 L50 87Z" fill="#372239"/>
+  <path d="M-78 122 C-145 170 -175 222 -235 253" stroke="url(#skin)" stroke-width="29" stroke-linecap="round" fill="none"/>
+  <path d="M78 122 C135 169 161 209 224 246" stroke="url(#skin)" stroke-width="29" stroke-linecap="round" fill="none"/>
+  <circle cx="-237" cy="253" r="17" fill="#e9a284"/><circle cx="225" cy="246" r="17" fill="#e9a284"/>
+</g>
+
+<!-- Right avatar -->
+<g transform="translate(1165 248)">
+  <ellipse cx="0" cy="245" rx="150" ry="205" fill="#0c0b14" opacity=".32" filter="url(#soft)"/>
+  <circle cx="0" cy="0" r="58" fill="url(#skin)"/>
+  <path d="M-58 -12 C-48 -82 55 -84 66 -18 C39 -45 15 -50 -11 -46 C-17 -24 -37 -11 -58 -12Z" fill="#17131b"/>
+  <path d="M-8 62 C-90 84 -112 180 -104 300 L-48 304 L-20 160 L22 160 L52 304 L112 302 C116 181 84 90 14 62Z" fill="#13131b"/>
+  <path d="M-41 90 L-12 153 L21 153 L49 88Z" fill="#d9d8df"/>
+  <path d="M-76 123 C-135 167 -166 210 -225 246" stroke="url(#skin)" stroke-width="29" stroke-linecap="round" fill="none"/>
+  <path d="M78 123 C145 170 176 221 235 253" stroke="url(#skin)" stroke-width="29" stroke-linecap="round" fill="none"/>
+  <circle cx="-226" cy="246" r="17" fill="#d99273"/><circle cx="237" cy="253" r="17" fill="#d99273"/>
+</g>
+
+<!-- Gift glow -->
+<ellipse cx="700" cy="505" rx="180" ry="72" fill="#c768ff" opacity=".35" filter="url(#soft)"/>
+<g filter="url(#glow)">
+  <rect x="615" y="366" width="170" height="150" rx="12" fill="url(#gift)" stroke="#fff" stroke-width="4"/>
+  <rect x="690" y="366" width="20" height="150" fill="#6f37d6"/>
+  <rect x="615" y="409" width="170" height="18" fill="#7b45e8" opacity=".9"/>
+  <path d="M700 366 C654 334 644 300 676 292 C699 286 705 323 700 366Z" fill="#f7e3ff" stroke="#b266ff" stroke-width="4"/>
+  <path d="M700 366 C746 334 756 300 724 292 C701 286 695 323 700 366Z" fill="#f7e3ff" stroke="#b266ff" stroke-width="4"/>
+</g>
+<g fill="#fff" opacity=".9">
+  <circle cx="617" cy="332" r="5"/><circle cx="790" cy="340" r="4"/><circle cx="755" cy="290" r="5"/>
+  <circle cx="650" cy="275" r="4"/><circle cx="825" cy="405" r="4"/><circle cx="575" cy="415" r="4"/>
+</g>
+<g fill="none" stroke="#d874ff" stroke-width="5" opacity=".9">
+  <ellipse cx="700" cy="435" rx="210" ry="78"/>
+  <ellipse cx="700" cy="435" rx="252" ry="96" opacity=".45"/>
+</g>
+
+<!-- Brand -->
+<g text-anchor="middle">
+  <text x="700" y="118" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="900" fill="#fff" stroke="#8f42db" stroke-width="4" paint-order="stroke">Delivery</text>
+  <text x="700" y="167" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#f0d7ff">SECOND LIFE DELIVERY SYSTEM</text>
+</g>
+</svg>
