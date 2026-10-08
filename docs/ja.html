@@ -42,7 +42,7 @@
     <a href="#inicio">ホーム</a>
     <a href="#primeros-pasos">はじめに</a>
     <div class="nav-group">設定</div>
-    <a href="#config-dador">Config Dador</a>
+    <a href="#config-dador">Dador Config</a>
     <a href="#acceso">アクセス</a>
     <a href="#menus">同時メニュー</a>
     <a href="#distancias">距離</a>
@@ -83,123 +83,123 @@
   <h3>Dador の内容</h3>
   <p>次の4つのスクリプトは Dador 内に残しておく必要があります。</p>
   <pre><code>Dador_Main v1.4.1
-Dador_Config_Productos v1.3.4
-Dador_Anim_portador v1.3.1
-Dador_Menu_Multiusuario v1.0.1</code></pre>
-  <p>そのほかに Config Dador、Lista Autorizados、Dador が使用するアニメーション、登録済み製品、必要に応じて TEMP_ コンポーネントがあります。</p>
-  <div class="callout danger"><strong>名前は完全一致が必要です</strong><p>メインのノートカード名は必ず Config Dador にしてください。ACCESO=LISTA を使用する場合、アクセス用ノートカード名は必ず Lista Autorizados にしてください。スクリプト名や TEMP_ コンポーネント名は変更しないでください。</p></div>
+Dador_Config_Products v1.3.4
+Dador_Carrier_Animation v1.3.1
+Dador_Multiuser_Menu v1.0.1</code></pre>
+  <p>そのほかに Dador Config、Authorized Users、Dador が使用するアニメーション、登録済み製品、必要に応じて TEMP_ コンポーネントがあります。</p>
+  <div class="callout danger"><strong>名前は完全一致が必要です</strong><p>メインのノートカード名は必ず Dador Config にしてください。ACCESS=LIST を使用する場合、アクセス用ノートカード名は必ず Authorized Users にしてください。スクリプト名や TEMP_ コンポーネント名は変更しないでください。</p></div>
   <h3>初回起動</h3>
-  <ol><li>オブジェクトを編集でき、スクリプトを実行できる場所に Dador のコピーをREZします。</li><li>Dador を右クリックして Edit を選びます。</li><li>Contents タブを開きます。</li><li>4つのメインスクリプトがすべて入っていることを確認します。</li><li>Config Dador が入っていることを確認します。</li><li>Config Dador に指定されているアニメーションが実際に Dador 内にあることを確認します。</li><li>Config Dador を開き、このマニュアルで説明している項目だけを変更して保存します。</li><li>テストする前に数秒待ちます。</li></ol>
-  <p>Config Dador の保存、アニメーションや製品、TEMP_ コンポーネントの追加・削除など、インベントリが変更されるとシステムは自動的に再読み込みします。</p>
+  <ol><li>オブジェクトを編集でき、スクリプトを実行できる場所に Dador のコピーをREZします。</li><li>Dador を右クリックして Edit を選びます。</li><li>Contents タブを開きます。</li><li>4つのメインスクリプトがすべて入っていることを確認します。</li><li>Dador Config が入っていることを確認します。</li><li>Dador Config に指定されているアニメーションが実際に Dador 内にあることを確認します。</li><li>Dador Config を開き、このマニュアルで説明している項目だけを変更して保存します。</li><li>テストする前に数秒待ちます。</li></ol>
+  <p>Dador Config の保存、アニメーションや製品、TEMP_ コンポーネントの追加・削除など、インベントリが変更されるとシステムは自動的に再読み込みします。</p>
 </section>
 
 <section id="config-dador" class="doc-section searchable">
-  <div class="section-heading"><span class="step">02</span><div><h2>Config Dador</h2><p>スクリプトを編集せずに製品を設定するための中心となるノートカードです。</p></div></div>
+  <div class="section-heading"><span class="step">02</span><div><h2>Dador Config</h2><p>スクリプトを編集せずに製品を設定するための中心となるノートカードです。</p></div></div>
   <p>設定行は NOMBRE=VALOR の形式で記述します。コード例に表示されているパラメータ名は翻訳せず、そのまま使用してください。</p>
   <pre><code>NOMBRE=VALOR</code></pre>
   <div class="two-col">
-    <div><h3>ルール</h3><ul><li>小数点にはピリオドを使用します: 1.2</li><li>小数点としてカンマは使用しません: 1,2</li><li># で始まる行はコメントです。</li><li>空行も使用できます。</li><li>Config Dador は物理行で最大100行まで対応します。</li></ul></div>
-    <div class="mini-card"><strong>最小構成の例</strong><pre><code>ACCESO=TODOS
-MENUS_SIMULTANEOS=NO
+    <div><h3>ルール</h3><ul><li>小数点にはピリオドを使用します: 1.2</li><li>小数点としてカンマは使用しません: 1,2</li><li># で始まる行はコメントです。</li><li>空行も使用できます。</li><li>Dador Config は物理行で最大100行まで対応します。</li></ul></div>
+    <div class="mini-card"><strong>最小構成の例</strong><pre><code>ACCESS=ALL
+SIMULTANEOUS_MENUS=NO
 
-RADIO_USO=5.0
-DISTANCIA_ANEXADO=2.0
-DISTANCIA_NO_ANEXADO=1.2</code></pre></div>
+USE_RADIUS=5.0
+ATTACHED_DISTANCE=2.0
+REZZED_DISTANCE=1.2</code></pre></div>
   </div>
-  <h3>完全な設定例</h3><pre><code>ACCESO=TODOS
+  <h3>完全な設定例</h3><pre><code>ACCESS=ALL
 
-MENUS_SIMULTANEOS=NO
+SIMULTANEOUS_MENUS=NO
 
-FRASE_DAR=
-MENSAJE_AUTOMATICO=SI
-DISTANCIA_MENSAJES=20
+DELIVERY_MESSAGE=
+AUTOMATIC_MESSAGE=YES
+MESSAGE_DISTANCE=20
 
-RADIO_USO=5.0
-DISTANCIA_ANEXADO=2.0
-DISTANCIA_NO_ANEXADO=1.2
+USE_RADIUS=5.0
+ATTACHED_DISTANCE=2.0
+REZZED_DISTANCE=1.2
 
-ANIM_PORTAR=Anim_Portar
-ANIM_SERVIR=Anim_Servir
-ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
-ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
+CARRY_ANIMATION=Anim_Carry
+SERVE_ANIMATION=Anim_Serve
+ATTACHED_RECEIVE_ANIMATION=Anim_Receive_Attached
+REZZED_PICKUP_ANIMATION=Anim_Pickup_Rezzed
 
-DURACION_ANIM_SERVIR=5.0
-DURACION_ANIM_RECIBIR_ANEXADO=5.0
-DURACION_ANIM_RECOGER_NO_ANEXADO=5.0
+SERVE_ANIMATION_DURATION=5.0
+ATTACHED_RECEIVE_ANIMATION_DURATION=5.0
+REZZED_PICKUP_ANIMATION_DURATION=5.0
 
-RETARDO_APARICION_TEMP_ANEXADO=0
-RETARDO_APARICION_TEMP_NO_ANEXADO=0</code></pre>
+ATTACHED_TEMP_SHOW_DELAY=0
+REZZED_TEMP_SHOW_DELAY=0</code></pre>
 </section>
 
 <section id="acceso" class="doc-section searchable">
   <div class="section-heading"><span class="step">03</span><div><h2>誰が使用できるか</h2><p>4つのアクセスモードがあります。</p></div></div>
   <div class="cards four">
-    <article><h3>TODOS</h3><code>ACCESO=TODOS</code><p>すべてのアバターが Dador を使用できます。</p></article>
-    <article><h3>PROPIETARIO</h3><code>ACCESO=PROPIETARIO</code><p>所有者だけが使用できます。</p></article>
-    <article><h3>GRUPO</h3><code>ACCESO=GRUPO</code><p>Dador と同じグループをアクティブにしているアバターだけが使用できます。</p></article>
-    <article><h3>LISTA</h3><code>ACCESO=LISTA</code><p>Lista Autorizados に登録されたアバターだけが使用できます。</p></article>
+    <article><h3>ALL</h3><code>ACCESS=ALL</code><p>すべてのアバターが Dador を使用できます。</p></article>
+    <article><h3>OWNER</h3><code>ACCESS=OWNER</code><p>所有者だけが使用できます。</p></article>
+    <article><h3>GROUP</h3><code>ACCESS=GROUP</code><p>Dador と同じグループをアクティブにしているアバターだけが使用できます。</p></article>
+    <article><h3>LIST</h3><code>ACCESS=LIST</code><p>Authorized Users に登録されたアバターだけが使用できます。</p></article>
   </div>
-  <h3>Lista Autorizados</h3>
+  <h3>Authorized Users</h3>
   <p>Second Life の Username を1行につき1名記入します。Display Name は使用しないでください。</p><pre><code>avatar.ejemplo
-OtroUsuario</code></pre><p>空行と # で始まるコメントを使用できます。最大20アバターです。Username を解決できない場合、修正されるまで LISTA モードはブロックされます。</p>
+OtroUsuario</code></pre><p>空行と # で始まるコメントを使用できます。最大20アバターです。Username を解決できない場合、修正されるまで LIST モードはブロックされます。</p>
 </section>
 
 <section id="menus" class="doc-section searchable">
   <div class="section-heading"><span class="step">04</span><div><h2>単独メニューまたは同時メニュー</h2><p>複数の人が利用するときの Dador の動作を選びます。</p></div></div>
   <div class="compare">
-    <article><span class="compare-label">通常</span><h3><code>MENUS_SIMULTANEOS=NO</code></h3><p>同時に Dador を使用できるのは1人だけです。そのユーザーがメニュー操作、選択、受け取りを行っている間、別のユーザーには使用中であることが通知されます。</p><p>Dador が装着されている場合、このモードでは ANIM_SERVIR が通常どおり動作します。</p></article>
-    <article><span class="compare-label">マルチユーザー</span><h3><code>MENUS_SIMULTANEOS=SI</code></h3><p>複数のアバターが同時に自分専用のメニューを開いて操作できます。受け渡し処理はその後、順番に1件ずつ行われます。</p><p>上限は同時メニュー20件、待機中の受け渡し要求20件です。</p></article>
+    <article><span class="compare-label">通常</span><h3><code>SIMULTANEOUS_MENUS=NO</code></h3><p>同時に Dador を使用できるのは1人だけです。そのユーザーがメニュー操作、選択、受け取りを行っている間、別のユーザーには使用中であることが通知されます。</p><p>Dador が装着されている場合、このモードでは SERVE_ANIMATION が通常どおり動作します。</p></article>
+    <article><span class="compare-label">マルチユーザー</span><h3><code>SIMULTANEOUS_MENUS=YES</code></h3><p>複数のアバターが同時に自分専用のメニューを開いて操作できます。受け渡し処理はその後、順番に1件ずつ行われます。</p><p>上限は同時メニュー20件、待機中の受け渡し要求20件です。</p></article>
   </div>
-  <div class="callout warning"><strong>同時モードでのアニメーション</strong><p>Dador が装着されている場合、ANIM_SERVIR は再生されません。ANIM_PORTAR、受け取り側のアニメーション、一時オブジェクト、恒久コピーは引き続き動作します。</p></div>
-  <h3>製品メニュー</h3><ul><li>1ページに最大3製品を表示します。</li><li>ページが複数ある場合は Anterior と Siguiente を使用します。</li><li>Cancelar を含みます。</li><li>各メニューは約30秒間操作がないと期限切れになります。</li></ul>
+  <div class="callout warning"><strong>同時モードでのアニメーション</strong><p>Dador が装着されている場合、SERVE_ANIMATION は再生されません。CARRY_ANIMATION、受け取り側のアニメーション、一時オブジェクト、恒久コピーは引き続き動作します。</p></div>
+  <h3>製品メニュー</h3><ul><li>1ページに最大3製品を表示します。</li><li>ページが複数ある場合は Previous と Next を使用します。</li><li>Cancel を含みます。</li><li>各メニューは約30秒間操作がないと期限切れになります。</li></ul>
 </section>
 
 <section id="distancias" class="doc-section searchable">
   <div class="section-heading"><span class="step">05</span><div><h2>距離</h2><p>メニューを開く距離と受け渡しを完了できる距離を、3つの値で個別に設定します。</p></div></div>
   <div class="cards three">
-    <article><h3>RADIO_USO</h3><code>0.5 .. 300.0 m</code><p>アバターが Dador の使用を開始してメニューを開ける最大距離です。</p></article>
-    <article><h3>DISTANCIA_ANEXADO</h3><code>0.1 .. 100.0 m</code><p>Dador 装着時に受け渡しを完了できる最大距離です。受け取り側と Dador を装着しているアバターの間を水平距離で測定します。</p></article>
-    <article><h3>DISTANCIA_NO_ANEXADO</h3><code>0.1 .. 100.0 m</code><p>Dador をREZして使用する場合の最終受け渡し距離です。オブジェクトの端から測定します。</p></article>
+    <article><h3>USE_RADIUS</h3><code>0.5 .. 300.0 m</code><p>アバターが Dador の使用を開始してメニューを開ける最大距離です。</p></article>
+    <article><h3>ATTACHED_DISTANCE</h3><code>0.1 .. 100.0 m</code><p>Dador 装着時に受け渡しを完了できる最大距離です。受け取り側と Dador を装着しているアバターの間を水平距離で測定します。</p></article>
+    <article><h3>REZZED_DISTANCE</h3><code>0.1 .. 100.0 m</code><p>Dador をREZして使用する場合の最終受け渡し距離です。オブジェクトの端から測定します。</p></article>
   </div>
-  <div class="callout danger"><strong>必須ルール</strong><p>DISTANCIA_ANEXADO と DISTANCIA_NO_ANEXADO は RADIO_USO より大きく設定できません。</p></div>
-  <div class="two-col"><div><h3>有効</h3><pre><code>RADIO_USO=20.0
-DISTANCIA_ANEXADO=15.0
-DISTANCIA_NO_ANEXADO=10.0</code></pre></div><div><h3>無効</h3><pre><code>RADIO_USO=10.0
-DISTANCIA_ANEXADO=15.0</code></pre></div></div>
+  <div class="callout danger"><strong>必須ルール</strong><p>ATTACHED_DISTANCE と REZZED_DISTANCE は USE_RADIUS より大きく設定できません。</p></div>
+  <div class="two-col"><div><h3>有効</h3><pre><code>USE_RADIUS=20.0
+ATTACHED_DISTANCE=15.0
+REZZED_DISTANCE=10.0</code></pre></div><div><h3>無効</h3><pre><code>USE_RADIUS=10.0
+ATTACHED_DISTANCE=15.0</code></pre></div></div>
 </section>
 
 <section id="animaciones" class="doc-section searchable">
   <div class="section-heading"><span class="step">06</span><div><h2>アニメーション</h2><p>インベントリ内の正確な名前で設定する、4つの独立した任意アニメーションです。</p></div></div>
-  <div class="callout info"><strong>どのアニメーションも無効にできます</strong><p>値を空にすると、そのアニメーションは再生されません。有効なアニメーションと無効なアニメーションを自由に組み合わせられます。</p><pre><code>ANIM_PORTAR=
-ANIM_SERVIR=
-ANIM_RECIBIR_ANEXADO=
-ANIM_RECOGER_NO_ANEXADO=</code></pre></div>
+  <div class="callout info"><strong>どのアニメーションも無効にできます</strong><p>値を空にすると、そのアニメーションは再生されません。有効なアニメーションと無効なアニメーションを自由に組み合わせられます。</p><pre><code>CARRY_ANIMATION=
+SERVE_ANIMATION=
+ATTACHED_RECEIVE_ANIMATION=
+REZZED_PICKUP_ANIMATION=</code></pre></div>
   <div class="feature-list">
-    <article><h3>ANIM_PORTAR</h3><p>Dador を装着しているアバターの常時ポーズです。使用する場合は loop 用に準備してください。空の場合、持つためのポーズは再生されません。</p><pre><code>ANIM_PORTAR=Anim_Portar</code></pre></article>
-    <article><h3>ANIM_SERVIR</h3><p>持つ側の一時的なサーブアニメーションです。Dador が装着され、MENUS_SIMULTANEOS=NO の場合だけ使用されます。空の場合、サーブアニメーションは再生されません。</p><pre><code>ANIM_SERVIR=Anim_Servir
-DURACION_ANIM_SERVIR=5.0</code></pre></article>
-    <article><h3>ANIM_RECIBIR_ANEXADO</h3><p>Dador が装着されている場合の受け取り側アニメーションです。空にできます。</p><pre><code>ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
-DURACION_ANIM_RECIBIR_ANEXADO=5.0</code></pre></article>
-    <article><h3>ANIM_RECOGER_NO_ANEXADO</h3><p>Dador がREZされている場合の受け取り側アニメーションです。空にできます。</p><pre><code>ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
-DURACION_ANIM_RECOGER_NO_ANEXADO=5.0</code></pre></article>
+    <article><h3>CARRY_ANIMATION</h3><p>Dador を装着しているアバターの常時ポーズです。使用する場合は loop 用に準備してください。空の場合、持つためのポーズは再生されません。</p><pre><code>CARRY_ANIMATION=Anim_Carry</code></pre></article>
+    <article><h3>SERVE_ANIMATION</h3><p>持つ側の一時的なサーブアニメーションです。Dador が装着され、SIMULTANEOUS_MENUS=NO の場合だけ使用されます。空の場合、サーブアニメーションは再生されません。</p><pre><code>SERVE_ANIMATION=Anim_Serve
+SERVE_ANIMATION_DURATION=5.0</code></pre></article>
+    <article><h3>ATTACHED_RECEIVE_ANIMATION</h3><p>Dador が装着されている場合の受け取り側アニメーションです。空にできます。</p><pre><code>ATTACHED_RECEIVE_ANIMATION=Anim_Receive_Attached
+ATTACHED_RECEIVE_ANIMATION_DURATION=5.0</code></pre></article>
+    <article><h3>REZZED_PICKUP_ANIMATION</h3><p>Dador がREZされている場合の受け取り側アニメーションです。空にできます。</p><pre><code>REZZED_PICKUP_ANIMATION=Anim_Pickup_Rezzed
+REZZED_PICKUP_ANIMATION_DURATION=5.0</code></pre></article>
   </div>
-  <p>3つの一時アニメーション時間は引き続き 0.1 .. 60.0 秒です。対応するアニメーションが空の場合、その時間設定は単に無視されます。ANIM_PORTAR には時間設定はありません。</p>
-  <h3>購入したアニメーションを使う</h3><p>アニメーションを改名する必要はありません。ANIM_* の行に名前を指定する場合、そのアニメーションを Dador に入れ、インベントリの正確な名前を記入してください。行が空なら、その役割のアニメーションは不要です。</p><pre><code>ANIM_RECIBIR_ANEXADO=[Tienda] Take Drink Bento 03</code></pre>
-  <h3>一時オブジェクトが表示されるタイミング</h3><pre><code>RETARDO_APARICION_TEMP_ANEXADO=1.3
-RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>受け取りアニメーションが有効な場合、遅延はそのアニメーション時間内に設定します。対応する受け取りアニメーションが空の場合、同期するアニメーションがないため、一時オブジェクトはすぐに表示され、この遅延は使用されません。</p>
+  <p>3つの一時アニメーション時間は引き続き 0.1 .. 60.0 秒です。対応するアニメーションが空の場合、その時間設定は単に無視されます。CARRY_ANIMATION には時間設定はありません。</p>
+  <h3>購入したアニメーションを使う</h3><p>アニメーションを改名する必要はありません。ANIM_* の行に名前を指定する場合、そのアニメーションを Dador に入れ、インベントリの正確な名前を記入してください。行が空なら、その役割のアニメーションは不要です。</p><pre><code>ATTACHED_RECEIVE_ANIMATION=[Tienda] Take Drink Bento 03</code></pre>
+  <h3>一時オブジェクトが表示されるタイミング</h3><pre><code>ATTACHED_TEMP_SHOW_DELAY=1.3
+REZZED_TEMP_SHOW_DELAY=1.6</code></pre><p>受け取りアニメーションが有効な場合、遅延はそのアニメーション時間内に設定します。対応する受け取りアニメーションが空の場合、同期するアニメーションがないため、一時オブジェクトはすぐに表示され、この遅延は使用されません。</p>
 </section>
 
 <section id="mensajes" class="doc-section searchable">
   <div class="section-heading"><span class="step">07</span><div><h2>受け渡しメッセージ</h2><p>任意の文章、自動メッセージ、または両方を使用できます。</p></div></div>
-  <h3>FRASE_DAR</h3><p>任意の文章を設定します。パラメータ名 FRASE_DAR は変更しないでください。</p><pre><code>FRASE_DAR=Que aproveche!</code></pre><p>任意の文章を表示しない場合は空のままにします。</p><pre><code>FRASE_DAR=</code></pre>
-  <h3>MENSAJE_AUTOMATICO</h3><p>自動受け渡しメッセージを有効にする場合は SI、無効にする場合は NO を使用します。Config Dador 内の SI/NO は翻訳しないでください。</p><pre><code>MENSAJE_AUTOMATICO=SI</code></pre><p>SI の場合、Dador は次の形式のメッセージを追加します。</p><pre><code>&lt;Nombre del Dador&gt; te ha dado &lt;Nombre del producto&gt;.</code></pre>
-  <table><thead><tr><th>FRASE_DAR</th><th>自動</th><th>結果</th></tr></thead><tbody>
+  <h3>DELIVERY_MESSAGE</h3><p>任意の文章を設定します。パラメータ名 DELIVERY_MESSAGE は変更しないでください。</p><pre><code>DELIVERY_MESSAGE=Que aproveche!</code></pre><p>任意の文章を表示しない場合は空のままにします。</p><pre><code>DELIVERY_MESSAGE=</code></pre>
+  <h3>AUTOMATIC_MESSAGE</h3><p>自動受け渡しメッセージを有効にする場合は YES、無効にする場合は NO を使用します。Dador Config 内の YES/NO は翻訳しないでください。</p><pre><code>AUTOMATIC_MESSAGE=YES</code></pre><p>YES の場合、Dador は次の形式のメッセージを追加します。</p><pre><code>&lt;Nombre del Dador&gt; te ha dado &lt;Nombre del producto&gt;.</code></pre>
+  <table><thead><tr><th>DELIVERY_MESSAGE</th><th>自動</th><th>結果</th></tr></thead><tbody>
     <tr><td>空</td><td>NO</td><td>メッセージなし</td></tr>
-    <tr><td>空</td><td>SI</td><td>自動のみ</td></tr>
+    <tr><td>空</td><td>YES</td><td>自動のみ</td></tr>
     <tr><td>文章あり</td><td>NO</td><td>任意文のみ</td></tr>
-    <tr><td>文章あり</td><td>SI</td><td>任意文 + 自動</td></tr>
+    <tr><td>文章あり</td><td>YES</td><td>任意文 + 自動</td></tr>
   </tbody></table>
-  <h3>DISTANCIA_MENSAJES</h3>
+  <h3>MESSAGE_DISTANCE</h3>
   <div class="cards three compact"><article><strong>10</strong><span>ささやき · 約10 m</span></article><article><strong>20</strong><span>通常チャット · 約20 m</span></article><article><strong>100</strong><span>叫び · 約100 m</span></article></div>
   <div class="callout info"><strong>Dador の名前が2回表示される理由</strong><p>Second Life は発言したオブジェクト名を自動的に表示します。自動メッセージ側にも同じオブジェクト名が含まれるため、2回表示される場合があります。</p></div>
 </section>
@@ -207,71 +207,71 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>受け取りアニメーシ
 <section id="productos" class="doc-section searchable">
   <div class="section-heading"><span class="step">08</span><div><h2>製品を作成して追加する</h2><p>Dador に対応するオブジェクトまたは notecard をゼロから準備する方法です。</p></div></div>
 
-  <div class="callout info"><strong>必要なもの</strong><p>通常のコピーだけを配布する場合は、製品本体と説明欄を準備すれば十分です。製品に一時コンポーネントが必要な場合は、システムに付属する <code>Script_Temporal</code> と、必要に応じて名前が完全に <code>Config Temporal</code> の notecard を使用します。このマニュアルでは設定方法を説明します。スクリプトコードを編集する必要はありません。</p></div>
+  <div class="callout info"><strong>必要なもの</strong><p>通常のコピーだけを配布する場合は、製品本体と説明欄を準備すれば十分です。製品に一時コンポーネントが必要な場合は、システムに付属する <code>Temporary_Script</code> と、必要に応じて名前が完全に <code>Temporary Config</code> の notecard を使用します。このマニュアルでは設定方法を説明します。スクリプトコードを編集する必要はありません。</p></div>
 
   <h3>1. 製品が何を渡すか決める</h3>
   <p>Dador は<strong>メイン要素の説明欄</strong>を読み、2つの指定を使用します。<code>T</code> は一時部分、<code>C</code> は恒久コピーです。</p>
   <div class="table-wrap"><table><thead><tr><th>説明</th><th>結果</th><th>代表的な用途</th></tr></thead><tbody>
-    <tr><td><code>T=NO;C=SI</code></td><td>恒久コピーのみ</td><td>オブジェクトまたは notecard をインベントリへ渡す</td></tr>
-    <tr><td><code>T=SI;C=NO</code></td><td>一時オブジェクトのみ</td><td>一時的に装着され、コピーを残さない prop</td></tr>
-    <tr><td><code>T=SI;C=SI</code></td><td>一時 + 恒久コピー</td><td>一時シーンとインベントリへのコピーを両方使用</td></tr>
+    <tr><td><code>TEMP=NO;COPY=YES</code></td><td>恒久コピーのみ</td><td>オブジェクトまたは notecard をインベントリへ渡す</td></tr>
+    <tr><td><code>TEMP=YES;COPY=NO</code></td><td>一時オブジェクトのみ</td><td>一時的に装着され、コピーを残さない prop</td></tr>
+    <tr><td><code>TEMP=YES;COPY=YES</code></td><td>一時 + 恒久コピー</td><td>一時シーンとインベントリへのコピーを両方使用</td></tr>
   </tbody></table></div>
-  <p>説明欄が空の場合は <code>T=NO;C=SI</code> と同じ扱いです。<code>T=NO;C=NO</code> は使用しないでください。渡すものが何もないため Dador は無効と判断します。</p>
+  <p>説明欄が空の場合は <code>TEMP=NO;COPY=YES</code> と同じ扱いです。<code>TEMP=NO;COPY=NO</code> は使用しないでください。渡すものが何もないため Dador は無効と判断します。</p>
 
   <h3>2. 製品構成を選ぶ</h3>
   <div class="cards four">
     <article><h3>コピー用オブジェクト</h3><pre><code>Beer
-Description: T=NO;C=SI</code></pre><p><code>Script_Temporal</code> は不要です。</p></article>
+Description: TEMP=NO;COPY=YES</code></pre><p><code>Temporary_Script</code> は不要です。</p></article>
     <article><h3>一時オブジェクト</h3><pre><code>Beer
-Description: T=SI;C=NO</code></pre><p><code>TEMP_Beer</code> が存在しない場合、メインオブジェクト自身を一時オブジェクトとして使用できます。</p></article>
+Description: TEMP=YES;COPY=NO</code></pre><p><code>TEMP_Beer</code> が存在しない場合、メインオブジェクト自身を一時オブジェクトとして使用できます。</p></article>
     <article><h3>オブジェクト + TEMP_</h3><pre><code>Beer
 TEMP_Beer</code></pre><p><code>TEMP_Beer</code> が存在する場合、Dador はそれを一時コンポーネントとして優先します。メニューに表示される製品は <code>Beer</code> のままです。</p></article>
     <article><h3>Notecard + TEMP_</h3><pre><code>Beer recipe
-TEMP_Beer recipe</code></pre><p><code>T=SI</code> の notecard では <code>TEMP_&lt;正確な名前&gt;</code> のオブジェクトが必須です。</p></article>
+TEMP_Beer recipe</code></pre><p><code>T=YES</code> の notecard では <code>TEMP_&lt;正確な名前&gt;</code> のオブジェクトが必須です。</p></article>
   </div>
 
   <h3>3. 一時オブジェクトを準備する</h3>
   <p>一時コンポーネントとして動作するオブジェクトには、一時用の中核と、必要に応じて設定とアニメーションを入れます。</p>
-  <pre><code>Script_Temporal
-Config Temporal
+  <pre><code>Temporary_Script
+Temporary Config
 独自アニメーション（任意）</code></pre>
-  <div class="callout danger"><strong>名前は完全一致</strong><p>notecard の名前は必ず完全に <code>Config Temporal</code> にしてください。<code>TEMP_</code> プレフィックスもそのまま使用し、その後ろにメイン製品の完全な名前を続けます。</p></div>
-  <p><code>T/C</code> の設定は<strong>メイン製品</strong>の説明欄に書きます。別の <code>TEMP_</code> 補助オブジェクトを使う場合、その補助側の説明欄に同じ設定を重複して書く必要はありません。Dador はメイン製品の設定を使用します。</p>
+  <div class="callout danger"><strong>名前は完全一致</strong><p>notecard の名前は必ず完全に <code>Temporary Config</code> にしてください。<code>TEMP_</code> プレフィックスもそのまま使用し、その後ろにメイン製品の完全な名前を続けます。</p></div>
+  <p><code>TEMP/COPY</code> の設定は<strong>メイン製品</strong>の説明欄に書きます。別の <code>TEMP_</code> 補助オブジェクトを使う場合、その補助側の説明欄に同じ設定を重複して書く必要はありません。Dador はメイン製品の設定を使用します。</p>
 
-  <h3>4. Config Temporal を設定する</h3>
-  <p>一般パラメータは <code>ANIMACIONn/TIEMPOn</code> シーケンスを始める前に記述します。</p>
-  <p>一時オブジェクトに独自アニメーションがなく、終了動作が既定の <code>DESANEXAR_AL_FINAL=SI</code> で、独自の受け取りメッセージも不要なら <code>Config Temporal</code> は省略できます。<code>DESANEXAR_AL_FINAL=NO</code> で装着を維持する場合、<code>FRASE_COGER</code> を使う場合、またはシーケンスを制御する場合は <code>Config Temporal</code> が必要です。</p>
-  <p><code>Config Temporal</code> は最大 <strong>100物理行</strong>です。時間の小数にはピリオドを使用します。例: <code>4.2</code>。</p>
+  <h3>4. Temporary Config を設定する</h3>
+  <p>一般パラメータは <code>ANIMATIONn/DURATIONn</code> シーケンスを始める前に記述します。</p>
+  <p>一時オブジェクトに独自アニメーションがなく、終了動作が既定の <code>DETACH_AT_END=YES</code> で、独自の受け取りメッセージも不要なら <code>Temporary Config</code> は省略できます。<code>DETACH_AT_END=NO</code> で装着を維持する場合、<code>PICKUP_MESSAGE</code> を使う場合、またはシーケンスを制御する場合は <code>Temporary Config</code> が必要です。</p>
+  <p><code>Temporary Config</code> は最大 <strong>100物理行</strong>です。時間の小数にはピリオドを使用します。例: <code>4.2</code>。</p>
   <div class="two-col">
-    <div><h3>独自アニメーションなし</h3><pre><code>FRASE_COGER=
-DISTANCIA_MENSAJE=20
-DESANEXAR_AL_FINAL=SI
+    <div><h3>独自アニメーションなし</h3><pre><code>PICKUP_MESSAGE=
+MESSAGE_DISTANCE=20
+DETACH_AT_END=YES
 
-ANIMACION1=
-TIEMPO1=</code></pre></div>
-    <div><h3>アニメーション1つ</h3><pre><code>FRASE_COGER=ビールを受け取りました。
-DISTANCIA_MENSAJE=20
-DESANEXAR_AL_FINAL=NO
+ANIMATION1=
+DURATION1=</code></pre></div>
+    <div><h3>アニメーション1つ</h3><pre><code>PICKUP_MESSAGE=ビールを受け取りました。
+MESSAGE_DISTANCE=20
+DETACH_AT_END=NO
 
-ANIMACION1=BRAZO COGER
-TIEMPO1=4.2</code></pre></div>
+ANIMATION1=BRAZO COGER
+DURATION1=4.2</code></pre></div>
   </div>
 
   <div class="feature-list">
-    <article><h3>FRASE_COGER</h3><p>一時オブジェクト自身が attach の約1秒後に発言するテキストです。空欄なら発言しません。</p></article>
-    <article><h3>DISTANCIA_MENSAJE</h3><p><code>10</code>、<code>20</code>、<code>100</code> のみ使用できます。省略時は <code>20</code> です。</p></article>
-    <article><h3>DESANEXAR_AL_FINAL</h3><p><code>SI</code> は終了時に一時オブジェクトを非表示にして解除します。<code>NO</code> はアバターが自分で外すまで表示・装着を維持します。</p></article>
-    <article><h3>ANIMACIONn / TIEMPOn</h3><p>最大10個。1から連番で指定します。実際の各時間は <code>0.1</code>〜<code>60.0</code> 秒です。</p></article>
+    <article><h3>PICKUP_MESSAGE</h3><p>一時オブジェクト自身が attach の約1秒後に発言するテキストです。空欄なら発言しません。</p></article>
+    <article><h3>MESSAGE_DISTANCE</h3><p><code>10</code>、<code>20</code>、<code>100</code> のみ使用できます。省略時は <code>20</code> です。</p></article>
+    <article><h3>DETACH_AT_END</h3><p><code>YES</code> は終了時に一時オブジェクトを非表示にして解除します。<code>NO</code> はアバターが自分で外すまで表示・装着を維持します。</p></article>
+    <article><h3>ANIMATIONn / DURATIONn</h3><p>最大10個。1から連番で指定します。実際の各時間は <code>0.1</code>〜<code>60.0</code> 秒です。</p></article>
   </div>
 
-  <div class="callout warning"><strong>2つのメッセージ距離を混同しないでください</strong><p><code>DISTANCIA_MENSAJE</code> は <code>Config Temporal</code> 用です。末尾に S がある <code>DISTANCIA_MENSAJES</code> は <code>Config Dador</code> 用です。別のパラメータです。</p></div>
+  <div class="callout warning"><strong>2つのメッセージ距離を混同しないでください</strong><p><code>MESSAGE_DISTANCE</code> は <code>Temporary Config</code> 用です。末尾に S がある <code>MESSAGE_DISTANCE</code> は <code>Dador Config</code> 用です。別のパラメータです。</p></div>
 
   <h3>5. 一時アニメーションのルール</h3>
   <ul>
-    <li>ペアは連続して記述します。<code>ANIMACION1</code> + <code>TIEMPO1</code>、次に <code>ANIMACION2</code> + <code>TIEMPO2</code> の順です。</li>
-    <li>アニメーションと時間の間に <code>FRASE_COGER</code>、<code>DISTANCIA_MENSAJE</code>、<code>DESANEXAR_AL_FINAL</code> を挟まないでください。</li>
+    <li>ペアは連続して記述します。<code>ANIMATION1</code> + <code>DURATION1</code>、次に <code>ANIMATION2</code> + <code>DURATION2</code> の順です。</li>
+    <li>アニメーションと時間の間に <code>PICKUP_MESSAGE</code>、<code>MESSAGE_DISTANCE</code>、<code>DETACH_AT_END</code> を挟まないでください。</li>
     <li>名前は一時オブジェクト内のアニメーション名と完全に一致させます。</li>
-    <li><code>ANIMACION1=</code> + <code>TIEMPO1=</code> のような空ペアはシーケンスを明示的に終了し、インベントリに未使用アニメーションが残っていても何も実行しない設定にできます。</li>
+    <li><code>ANIMATION1=</code> + <code>DURATION1=</code> のような空ペアはシーケンスを明示的に終了し、インベントリに未使用アニメーションが残っていても何も実行しない設定にできます。</li>
     <li>空ペアの後に新しいアニメーションを追加しないでください。</li>
   </ul>
 
@@ -279,13 +279,13 @@ TIEMPO1=4.2</code></pre></div>
   <p>Dador はコピー配布と一時オブジェクト生成に必要な権限を確認します。一時用に使う要素は、それと一緒に移動する必要がある内容も含めて <strong>Copy + Transfer</strong> を許可する必要があります。準備後に権限を変更した場合は、完全なテストをやり直してください。</p>
 
   <h3>7. Dador に入れる前に製品をテストする</h3>
-  <p><code>Script_Temporal v2.6.4</code> を使う場合、一時オブジェクトを手動で REZ します。Dador の起動データを受け取らないため<strong>準備モード</strong>になり、装着、権限要求、アニメーション実行、自動削除は行いません。</p>
-  <p>診断は T/C 説明、<code>Config Temporal</code>、各パラメータ、アニメーション、製品全体の状態を確認します。すべて正しければ次のような表示になります。</p>
-  <pre><code>OK: T=SI;C=SI (temporal + copia).
+  <p><code>Temporary_Script v2.6.4</code> を使う場合、一時オブジェクトを手動で REZ します。Dador の起動データを受け取らないため<strong>準備モード</strong>になり、装着、権限要求、アニメーション実行、自動削除は行いません。</p>
+  <p>診断は TEMP/COPY 説明、<code>Temporary Config</code>、各パラメータ、アニメーション、製品全体の状態を確認します。すべて正しければ次のような表示になります。</p>
+  <pre><code>OK: TEMP=YES;COPY=YES (temporal + copia).
 PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
-RESULTADO: LISTO para introducir en el Dador.
+RESULT: READY to be placed in the Dador.
 MEM: usada=... libre=...</code></pre>
-  <p><code>RESULTADO: NO LISTO</code> が表示された場合は、示されたエラーを先に修正してください。インベントリ変更時には診断が再実行され、準備モード中は名前と説明も監視されます。</p>
+  <p><code>RESULT: NOT READY</code> が表示された場合は、示されたエラーを先に修正してください。インベントリ変更時には診断が再実行され、準備モード中は名前と説明も監視されます。</p>
 
   <h3>8. 製品を Dador に入れる</h3>
   <ol>
@@ -300,7 +300,7 @@ MEM: usada=... libre=...</code></pre>
   </ol>
 
   <div class="stats"><div><strong>30</strong><span>最大製品数</span></div><div><strong>128</strong><span>インベントリ総数の上限</span></div></div>
-  <div class="callout info"><strong>簡単なまとめ</strong><p>最初に <code>T/C</code> を決めます。一時部分がある場合はそれを準備し、<code>Config Temporal</code> を設定して REZ し、<code>RESULTADO: LISTO</code> を確認します。その後で製品と必要な <code>TEMP_</code> を Dador に入れ、完全な配布テストを行います。</p></div>
+  <div class="callout info"><strong>簡単なまとめ</strong><p>最初に <code>TEMP/COPY</code> を決めます。一時部分がある場合はそれを準備し、<code>Temporary Config</code> を設定して REZ し、<code>RESULT: READY</code> を確認します。その後で製品と必要な <code>TEMP_</code> を Dador に入れ、完全な配布テストを行います。</p></div>
 </section>
 
 <section id="temporales" class="doc-section searchable">
@@ -316,47 +316,47 @@ TEMP_Nota de demostración</code></pre>
 <section id="uso" class="doc-section searchable">
   <div class="section-heading"><span class="step">10</span><div><h2>REZ設置・装着での使用</h2><p>同じシステムを2通りの方法で使用できます。</p></div></div>
   <div class="compare">
-    <article><span class="compare-label">REZ設置</span><ol><li>Dador をワールドに設置します。</li><li>ユーザーは RADIO_USO の範囲内にいる必要があります。</li><li>Dador にタッチして製品を選択します。</li><li>受け渡しを完了するには DISTANCIA_NO_ANEXADO の範囲内にいる必要があります。</li><li>受け取り側は ANIM_RECOGER_NO_ANEXADO を使用します。</li></ol><p>REZ設置モードでは ANIM_PORTAR と ANIM_SERVIR は使用されません。</p></article>
-    <article><span class="compare-label">装着</span><ol><li>製品を渡す側のアバターに Dador を装着します。</li><li>ANIM_PORTAR が自動的に開始します。</li><li>別のアバターが Dador にタッチして製品を選択します。</li><li>受け取り側は DISTANCIA_ANEXADO の範囲内にいる必要があります。</li><li>受け取り側は ANIM_RECIBIR_ANEXADO を使用します。</li></ol><p>MENUS_SIMULTANEOS=NO の場合、持つ側では ANIM_SERVIR も再生されます。</p></article>
+    <article><span class="compare-label">REZ設置</span><ol><li>Dador をワールドに設置します。</li><li>ユーザーは USE_RADIUS の範囲内にいる必要があります。</li><li>Dador にタッチして製品を選択します。</li><li>受け渡しを完了するには REZZED_DISTANCE の範囲内にいる必要があります。</li><li>受け取り側は REZZED_PICKUP_ANIMATION を使用します。</li></ol><p>REZ設置モードでは CARRY_ANIMATION と SERVE_ANIMATION は使用されません。</p></article>
+    <article><span class="compare-label">装着</span><ol><li>製品を渡す側のアバターに Dador を装着します。</li><li>CARRY_ANIMATION が自動的に開始します。</li><li>別のアバターが Dador にタッチして製品を選択します。</li><li>受け取り側は ATTACHED_DISTANCE の範囲内にいる必要があります。</li><li>受け取り側は ATTACHED_RECEIVE_ANIMATION を使用します。</li></ol><p>SIMULTANEOUS_MENUS=NO の場合、持つ側では SERVE_ANIMATION も再生されます。</p></article>
   </div>
   <div class="callout info"><strong>持っている本人には渡せません</strong><p>Dador を装着しているアバターは、装着中に自分自身の Dador を利用できません。他のアバターへ製品を渡すための仕様です。</p></div>
 </section>
 
 <section id="problemas" class="doc-section searchable">
   <div class="section-heading"><span class="step">11</span><div><h2>トラブルシューティング</h2><p>よくある問題の多くは、次の確認で解決できます。</p></div></div>
-  <details><summary>メニューが表示されない</summary><p>RADIO_USO、ACCESO モード、Dador の読み込み完了、有効な製品の存在、Config Dador にエラーがないことを確認してください。</p></details>
-  <details><summary>「アクセス不可」と表示される</summary><p>GRUPO の場合は Dador のグループとアバターのアクティブグループを確認します。LISTA の場合は Display Name ではなく有効な Username を使用します。</p></details>
-  <details><summary>Dador が使用中と表示される</summary><p>MENUS_SIMULTANEOS=NO では正常です。同時に1人だけが使用できます。</p></details>
+  <details><summary>メニューが表示されない</summary><p>USE_RADIUS、ACCESS モード、Dador の読み込み完了、有効な製品の存在、Dador Config にエラーがないことを確認してください。</p></details>
+  <details><summary>「アクセス不可」と表示される</summary><p>GROUP の場合は Dador のグループとアバターのアクティブグループを確認します。LIST の場合は Display Name ではなく有効な Username を使用します。</p></details>
+  <details><summary>Dador が使用中と表示される</summary><p>SIMULTANEOUS_MENUS=NO では正常です。同時に1人だけが使用できます。</p></details>
   <details><summary>メニューまたは要求が多すぎる</summary><p>同時モードでは、アクティブなメニューセッションは最大20件、待機中の選択は最大20件です。</p></details>
-  <details><summary>もっと近づくよう表示される</summary><p>RADIO_USO の範囲内でも、最終受け渡し距離の外にいる場合があります。DISTANCIA_ANEXADO または DISTANCIA_NO_ANEXADO を確認してください。</p></details>
-  <details><summary>アニメーションが再生されない</summary><p>アニメーションが Dador 内にあり、名前が完全一致し、設定時間が正しいことを確認してください。ANIM_PORTAR は loop 用に準備されたアニメーションである必要があります。</p></details>
-  <details><summary>ANIM_SERVIR が再生されない</summary><p>MENUS_SIMULTANEOS=SI の場合は仕様どおりです。</p></details>
-  <details><summary>一時オブジェクトの表示が早すぎる、または遅すぎる</summary><p>RETARDO_APARICION_TEMP_ANEXADO または RETARDO_APARICION_TEMP_NO_ANEXADO を調整してください。</p></details>
+  <details><summary>もっと近づくよう表示される</summary><p>USE_RADIUS の範囲内でも、最終受け渡し距離の外にいる場合があります。ATTACHED_DISTANCE または REZZED_DISTANCE を確認してください。</p></details>
+  <details><summary>アニメーションが再生されない</summary><p>アニメーションが Dador 内にあり、名前が完全一致し、設定時間が正しいことを確認してください。CARRY_ANIMATION は loop 用に準備されたアニメーションである必要があります。</p></details>
+  <details><summary>SERVE_ANIMATION が再生されない</summary><p>SIMULTANEOUS_MENUS=YES の場合は仕様どおりです。</p></details>
+  <details><summary>一時オブジェクトの表示が早すぎる、または遅すぎる</summary><p>ATTACHED_TEMP_SHOW_DELAY または REZZED_TEMP_SHOW_DELAY を調整してください。</p></details>
   <details><summary>一時オブジェクトが消えない</summary><p>正常な場合があります。一部の製品は受け取り側が手動で外すまで装着したままになるよう設計されています。</p></details>
-  <details><summary>受け渡しメッセージが表示されない</summary><p>FRASE_DAR= と MENSAJE_AUTOMATICO=NO の場合、何も表示されないのが正しい動作です。</p></details>
-  <details><summary>DISTANCIA_MENSAJES でエラーになる</summary><p>使用できる値は 10、20、100 だけです。</p></details>
+  <details><summary>受け渡しメッセージが表示されない</summary><p>DELIVERY_MESSAGE= と AUTOMATIC_MESSAGE=NO の場合、何も表示されないのが正しい動作です。</p></details>
+  <details><summary>MESSAGE_DISTANCE でエラーになる</summary><p>使用できる値は 10、20、100 だけです。</p></details>
 </section>
 
 <section id="referencia" class="doc-section searchable">
   <div class="section-heading"><span class="step">12</span><div><h2>クイックリファレンス</h2><p>重要なパラメータを1つの表にまとめています。</p></div></div>
   <div class="table-wrap"><table class="reference"><thead><tr><th>パラメータ</th><th>値</th></tr></thead><tbody>
-    <tr><td><code>ACCESO</code></td><td>PROPIETARIO · GRUPO · LISTA · TODOS</td></tr>
-    <tr><td><code>MENUS_SIMULTANEOS</code></td><td>SI · NO</td></tr>
-    <tr><td><code>FRASE_DAR</code></td><td>自由入力または空</td></tr>
-    <tr><td><code>MENSAJE_AUTOMATICO</code></td><td>SI · NO</td></tr>
-    <tr><td><code>DISTANCIA_MENSAJES</code></td><td>10 · 20 · 100</td></tr>
-    <tr><td><code>RADIO_USO</code></td><td>0.5 .. 300.0</td></tr>
-    <tr><td><code>DISTANCIA_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
-    <tr><td><code>DISTANCIA_NO_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
-    <tr><td><code>ANIM_PORTAR</code></td><td>アニメーションの正確な名前 · loop · または空</td></tr>
-    <tr><td><code>ANIM_SERVIR</code></td><td>アニメーションの正確な名前 · または空</td></tr>
-    <tr><td><code>ANIM_RECIBIR_ANEXADO</code></td><td>アニメーションの正確な名前 · または空</td></tr>
-    <tr><td><code>ANIM_RECOGER_NO_ANEXADO</code></td><td>アニメーションの正確な名前 · または空</td></tr>
-    <tr><td><code>DURACION_ANIM_SERVIR</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>DURACION_ANIM_RECIBIR_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>DURACION_ANIM_RECOGER_NO_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>RETARDO_APARICION_TEMP_ANEXADO</code></td><td>0.0 .. 10.0</td></tr>
-    <tr><td><code>RETARDO_APARICION_TEMP_NO_ANEXADO</code></td><td>0.0 .. 10.0</td></tr>
+    <tr><td><code>ACCESS</code></td><td>OWNER · GROUP · LIST · ALL</td></tr>
+    <tr><td><code>SIMULTANEOUS_MENUS</code></td><td>YES · NO</td></tr>
+    <tr><td><code>DELIVERY_MESSAGE</code></td><td>自由入力または空</td></tr>
+    <tr><td><code>AUTOMATIC_MESSAGE</code></td><td>YES · NO</td></tr>
+    <tr><td><code>MESSAGE_DISTANCE</code></td><td>10 · 20 · 100</td></tr>
+    <tr><td><code>USE_RADIUS</code></td><td>0.5 .. 300.0</td></tr>
+    <tr><td><code>ATTACHED_DISTANCE</code></td><td>0.1 .. 100.0</td></tr>
+    <tr><td><code>REZZED_DISTANCE</code></td><td>0.1 .. 100.0</td></tr>
+    <tr><td><code>CARRY_ANIMATION</code></td><td>アニメーションの正確な名前 · loop · または空</td></tr>
+    <tr><td><code>SERVE_ANIMATION</code></td><td>アニメーションの正確な名前 · または空</td></tr>
+    <tr><td><code>ATTACHED_RECEIVE_ANIMATION</code></td><td>アニメーションの正確な名前 · または空</td></tr>
+    <tr><td><code>REZZED_PICKUP_ANIMATION</code></td><td>アニメーションの正確な名前 · または空</td></tr>
+    <tr><td><code>SERVE_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>ATTACHED_RECEIVE_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>REZZED_PICKUP_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>ATTACHED_TEMP_SHOW_DELAY</code></td><td>0.0 .. 10.0</td></tr>
+    <tr><td><code>REZZED_TEMP_SHOW_DELAY</code></td><td>0.0 .. 10.0</td></tr>
   </tbody></table></div>
 </section>
 
