@@ -42,7 +42,7 @@
     <a href="#inicio">Accueil</a>
     <a href="#primeros-pasos">Premiers pas</a>
     <div class="nav-group">Configuration</div>
-    <a href="#config-dador">Config Dador</a>
+    <a href="#config-dador">Dador Config</a>
     <a href="#acceso">Accès</a>
     <a href="#menus">Menus simultanés</a>
     <a href="#distancias">Distances</a>
@@ -83,123 +83,123 @@
   <h3>Contenu du Dador</h3>
   <p>Ces quatre scripts doivent rester dans le Dador :</p>
   <pre><code>Dador_Main v1.4.1
-Dador_Config_Productos v1.3.4
-Dador_Anim_portador v1.3.1
-Dador_Menu_Multiusuario v1.0.1</code></pre>
-  <p>Vous trouverez également Config Dador, Lista Autorizados, les animations utilisées, les produits installés et d’éventuels composants TEMP_.</p>
-  <div class="callout danger"><strong>Les noms exacts sont obligatoires</strong><p>La notecard principale doit s’appeler exactement Config Dador. Si vous utilisez ACCESO=LISTA, la notecard doit s’appeler exactement Lista Autorizados. Ne renommez pas les scripts ni les composants TEMP_.</p></div>
+Dador_Config_Products v1.3.4
+Dador_Carrier_Animation v1.3.1
+Dador_Multiuser_Menu v1.0.1</code></pre>
+  <p>Vous trouverez également Dador Config, Authorized Users, les animations utilisées, les produits installés et d’éventuels composants TEMP_.</p>
+  <div class="callout danger"><strong>Les noms exacts sont obligatoires</strong><p>La notecard principale doit s’appeler exactement Dador Config. Si vous utilisez ACCESS=LIST, la notecard doit s’appeler exactement Authorized Users. Ne renommez pas les scripts ni les composants TEMP_.</p></div>
   <h3>Premier démarrage</h3>
-  <ol><li>Rezzez une copie du Dador dans une zone où vous pouvez modifier les objets et exécuter les scripts.</li><li>Cliquez avec le bouton droit sur le Dador et choisissez Modifier.</li><li>Ouvrez l’onglet Contenu.</li><li>Vérifiez la présence des quatre scripts principaux.</li><li>Vérifiez que Config Dador est présent.</li><li>Vérifiez que les animations indiquées dans Config Dador se trouvent réellement dans le Dador.</li><li>Ouvrez Config Dador, ne modifiez que les options documentées et enregistrez.</li><li>Attendez quelques secondes avant de tester.</li></ol>
-  <p>Le système recharge automatiquement sa configuration lorsque l’inventaire change, notamment après l’enregistrement de Config Dador ou l’ajout/la suppression d’animations, de produits ou de composants TEMP_.</p>
+  <ol><li>Rezzez une copie du Dador dans une zone où vous pouvez modifier les objets et exécuter les scripts.</li><li>Cliquez avec le bouton droit sur le Dador et choisissez Modifier.</li><li>Ouvrez l’onglet Contenu.</li><li>Vérifiez la présence des quatre scripts principaux.</li><li>Vérifiez que Dador Config est présent.</li><li>Vérifiez que les animations indiquées dans Dador Config se trouvent réellement dans le Dador.</li><li>Ouvrez Dador Config, ne modifiez que les options documentées et enregistrez.</li><li>Attendez quelques secondes avant de tester.</li></ol>
+  <p>Le système recharge automatiquement sa configuration lorsque l’inventaire change, notamment après l’enregistrement de Dador Config ou l’ajout/la suppression d’animations, de produits ou de composants TEMP_.</p>
 </section>
 
 <section id="config-dador" class="doc-section searchable">
-  <div class="section-heading"><span class="step">02</span><div><h2>Config Dador</h2><p>Le centre de contrôle du produit, sans modifier les scripts.</p></div></div>
+  <div class="section-heading"><span class="step">02</span><div><h2>Dador Config</h2><p>Le centre de contrôle du produit, sans modifier les scripts.</p></div></div>
   <p>Les lignes de configuration utilisent le format NOMBRE=VALOR. Les noms de paramètres affichés dans les blocs de code ne doivent pas être traduits.</p>
   <pre><code>NOMBRE=VALOR</code></pre>
   <div class="two-col">
-    <div><h3>Règles</h3><ul><li>Utilisez un point pour les décimales : 1.2.</li><li>N’utilisez pas de virgule comme séparateur décimal : 1,2.</li><li>Les lignes commençant par # sont des commentaires.</li><li>Les lignes vides sont autorisées.</li><li>Config Dador accepte jusqu’à 100 lignes physiques.</li></ul></div>
-    <div class="mini-card"><strong>Exemple minimal</strong><pre><code>ACCESO=TODOS
-MENUS_SIMULTANEOS=NO
+    <div><h3>Règles</h3><ul><li>Utilisez un point pour les décimales : 1.2.</li><li>N’utilisez pas de virgule comme séparateur décimal : 1,2.</li><li>Les lignes commençant par # sont des commentaires.</li><li>Les lignes vides sont autorisées.</li><li>Dador Config accepte jusqu’à 100 lignes physiques.</li></ul></div>
+    <div class="mini-card"><strong>Exemple minimal</strong><pre><code>ACCESS=ALL
+SIMULTANEOUS_MENUS=NO
 
-RADIO_USO=5.0
-DISTANCIA_ANEXADO=2.0
-DISTANCIA_NO_ANEXADO=1.2</code></pre></div>
+USE_RADIUS=5.0
+ATTACHED_DISTANCE=2.0
+REZZED_DISTANCE=1.2</code></pre></div>
   </div>
-  <h3>Exemple complet</h3><pre><code>ACCESO=TODOS
+  <h3>Exemple complet</h3><pre><code>ACCESS=ALL
 
-MENUS_SIMULTANEOS=NO
+SIMULTANEOUS_MENUS=NO
 
-FRASE_DAR=
-MENSAJE_AUTOMATICO=SI
-DISTANCIA_MENSAJES=20
+DELIVERY_MESSAGE=
+AUTOMATIC_MESSAGE=YES
+MESSAGE_DISTANCE=20
 
-RADIO_USO=5.0
-DISTANCIA_ANEXADO=2.0
-DISTANCIA_NO_ANEXADO=1.2
+USE_RADIUS=5.0
+ATTACHED_DISTANCE=2.0
+REZZED_DISTANCE=1.2
 
-ANIM_PORTAR=Anim_Portar
-ANIM_SERVIR=Anim_Servir
-ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
-ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
+CARRY_ANIMATION=Anim_Carry
+SERVE_ANIMATION=Anim_Serve
+ATTACHED_RECEIVE_ANIMATION=Anim_Receive_Attached
+REZZED_PICKUP_ANIMATION=Anim_Pickup_Rezzed
 
-DURACION_ANIM_SERVIR=5.0
-DURACION_ANIM_RECIBIR_ANEXADO=5.0
-DURACION_ANIM_RECOGER_NO_ANEXADO=5.0
+SERVE_ANIMATION_DURATION=5.0
+ATTACHED_RECEIVE_ANIMATION_DURATION=5.0
+REZZED_PICKUP_ANIMATION_DURATION=5.0
 
-RETARDO_APARICION_TEMP_ANEXADO=0
-RETARDO_APARICION_TEMP_NO_ANEXADO=0</code></pre>
+ATTACHED_TEMP_SHOW_DELAY=0
+REZZED_TEMP_SHOW_DELAY=0</code></pre>
 </section>
 
 <section id="acceso" class="doc-section searchable">
   <div class="section-heading"><span class="step">03</span><div><h2>Qui peut l’utiliser</h2><p>Quatre modes d’accès.</p></div></div>
   <div class="cards four">
-    <article><h3>TODOS</h3><code>ACCESO=TODOS</code><p>N’importe quel avatar peut utiliser le Dador.</p></article>
-    <article><h3>PROPIETARIO</h3><code>ACCESO=PROPIETARIO</code><p>Seul le propriétaire peut l’utiliser.</p></article>
-    <article><h3>GRUPO</h3><code>ACCESO=GRUPO</code><p>Seuls les avatars ayant le même groupe actif que le Dador peuvent l’utiliser.</p></article>
-    <article><h3>LISTA</h3><code>ACCESO=LISTA</code><p>Seuls les avatars inclus dans Lista Autorizados peuvent l’utiliser.</p></article>
+    <article><h3>ALL</h3><code>ACCESS=ALL</code><p>N’importe quel avatar peut utiliser le Dador.</p></article>
+    <article><h3>OWNER</h3><code>ACCESS=OWNER</code><p>Seul le propriétaire peut l’utiliser.</p></article>
+    <article><h3>GROUP</h3><code>ACCESS=GROUP</code><p>Seuls les avatars ayant le même groupe actif que le Dador peuvent l’utiliser.</p></article>
+    <article><h3>LIST</h3><code>ACCESS=LIST</code><p>Seuls les avatars inclus dans Authorized Users peuvent l’utiliser.</p></article>
   </div>
-  <h3>Lista Autorizados</h3>
+  <h3>Authorized Users</h3>
   <p>Écrivez un Username Second Life par ligne. N’utilisez pas les Display Names.</p><pre><code>avatar.ejemplo
-OtroUsuario</code></pre><p>Les lignes vides et les commentaires commençant par # sont autorisés. Maximum : 20 avatars. Si un Username ne peut pas être résolu, le mode LISTA reste bloqué jusqu’à correction.</p>
+OtroUsuario</code></pre><p>Les lignes vides et les commentaires commençant par # sont autorisés. Maximum : 20 avatars. Si un Username ne peut pas être résolu, le mode LIST reste bloqué jusqu’à correction.</p>
 </section>
 
 <section id="menus" class="doc-section searchable">
   <div class="section-heading"><span class="step">04</span><div><h2>Menu individuel ou simultané</h2><p>Choisissez le comportement du Dador lorsque plusieurs personnes l’utilisent.</p></div></div>
   <div class="compare">
-    <article><span class="compare-label">Classique</span><h3><code>MENUS_SIMULTANEOS=NO</code></h3><p>Une seule personne peut utiliser le Dador à la fois. Pendant qu’elle navigue, sélectionne et reçoit, une autre personne verra que le Dador est occupé.</p><p>Lorsque le Dador est attaché, ANIM_SERVIR fonctionne normalement dans ce mode.</p></article>
-    <article><span class="compare-label">Multiutilisateur</span><h3><code>MENUS_SIMULTANEOS=SI</code></h3><p>Plusieurs avatars peuvent ouvrir et parcourir leur propre menu en même temps. Les livraisons sont ensuite traitées une par une et dans l’ordre.</p><p>Limites : jusqu’à 20 menus simultanés et 20 demandes de livraison en attente.</p></article>
+    <article><span class="compare-label">Classique</span><h3><code>SIMULTANEOUS_MENUS=NO</code></h3><p>Une seule personne peut utiliser le Dador à la fois. Pendant qu’elle navigue, sélectionne et reçoit, une autre personne verra que le Dador est occupé.</p><p>Lorsque le Dador est attaché, SERVE_ANIMATION fonctionne normalement dans ce mode.</p></article>
+    <article><span class="compare-label">Multiutilisateur</span><h3><code>SIMULTANEOUS_MENUS=YES</code></h3><p>Plusieurs avatars peuvent ouvrir et parcourir leur propre menu en même temps. Les livraisons sont ensuite traitées une par une et dans l’ordre.</p><p>Limites : jusqu’à 20 menus simultanés et 20 demandes de livraison en attente.</p></article>
   </div>
-  <div class="callout warning"><strong>Animations en mode simultané</strong><p>Lorsque le Dador est attaché, ANIM_SERVIR n’est pas jouée. ANIM_PORTAR, les animations du destinataire, les temporaires et les copies permanentes continuent de fonctionner.</p></div>
-  <h3>Menu des produits</h3><ul><li>Affiche jusqu’à 3 produits par page.</li><li>Utilise Anterior et Siguiente lorsqu’il y a plusieurs pages.</li><li>Inclut Cancelar.</li><li>Chaque menu expire après environ 30 secondes d’inactivité.</li></ul>
+  <div class="callout warning"><strong>Animations en mode simultané</strong><p>Lorsque le Dador est attaché, SERVE_ANIMATION n’est pas jouée. CARRY_ANIMATION, les animations du destinataire, les temporaires et les copies permanentes continuent de fonctionner.</p></div>
+  <h3>Menu des produits</h3><ul><li>Affiche jusqu’à 3 produits par page.</li><li>Utilise Previous et Next lorsqu’il y a plusieurs pages.</li><li>Inclut Cancel.</li><li>Chaque menu expire après environ 30 secondes d’inactivité.</li></ul>
 </section>
 
 <section id="distancias" class="doc-section searchable">
   <div class="section-heading"><span class="step">05</span><div><h2>Distances</h2><p>Trois valeurs distinctes contrôlent l’ouverture du menu et la finalisation d’une livraison.</p></div></div>
   <div class="cards three">
-    <article><h3>RADIO_USO</h3><code>0.5 .. 300.0 m</code><p>Distance maximale depuis laquelle un avatar peut commencer à utiliser le Dador et ouvrir le menu.</p></article>
-    <article><h3>DISTANCIA_ANEXADO</h3><code>0.1 .. 100.0 m</code><p>Distance finale lorsque le Dador est attaché. Elle est mesurée horizontalement entre le destinataire et l’avatar porteur.</p></article>
-    <article><h3>DISTANCIA_NO_ANEXADO</h3><code>0.1 .. 100.0 m</code><p>Distance finale lorsque le Dador est rezzé. Elle est mesurée depuis le bord de l’objet.</p></article>
+    <article><h3>USE_RADIUS</h3><code>0.5 .. 300.0 m</code><p>Distance maximale depuis laquelle un avatar peut commencer à utiliser le Dador et ouvrir le menu.</p></article>
+    <article><h3>ATTACHED_DISTANCE</h3><code>0.1 .. 100.0 m</code><p>Distance finale lorsque le Dador est attaché. Elle est mesurée horizontalement entre le destinataire et l’avatar porteur.</p></article>
+    <article><h3>REZZED_DISTANCE</h3><code>0.1 .. 100.0 m</code><p>Distance finale lorsque le Dador est rezzé. Elle est mesurée depuis le bord de l’objet.</p></article>
   </div>
-  <div class="callout danger"><strong>Règle obligatoire</strong><p>DISTANCIA_ANEXADO et DISTANCIA_NO_ANEXADO ne doivent jamais être supérieures à RADIO_USO.</p></div>
-  <div class="two-col"><div><h3>Valide</h3><pre><code>RADIO_USO=20.0
-DISTANCIA_ANEXADO=15.0
-DISTANCIA_NO_ANEXADO=10.0</code></pre></div><div><h3>Invalide</h3><pre><code>RADIO_USO=10.0
-DISTANCIA_ANEXADO=15.0</code></pre></div></div>
+  <div class="callout danger"><strong>Règle obligatoire</strong><p>ATTACHED_DISTANCE et REZZED_DISTANCE ne doivent jamais être supérieures à USE_RADIUS.</p></div>
+  <div class="two-col"><div><h3>Valide</h3><pre><code>USE_RADIUS=20.0
+ATTACHED_DISTANCE=15.0
+REZZED_DISTANCE=10.0</code></pre></div><div><h3>Invalide</h3><pre><code>USE_RADIUS=10.0
+ATTACHED_DISTANCE=15.0</code></pre></div></div>
 </section>
 
 <section id="animaciones" class="doc-section searchable">
   <div class="section-heading"><span class="step">06</span><div><h2>Animations</h2><p>Quatre animations indépendantes et facultatives, configurées avec leur nom exact dans l’inventaire.</p></div></div>
-  <div class="callout info"><strong>Chaque animation peut être désactivée</strong><p>Laissez la valeur d’une animation vide pour qu’elle ne soit pas jouée. Les animations actives et désactivées peuvent être combinées librement.</p><pre><code>ANIM_PORTAR=
-ANIM_SERVIR=
-ANIM_RECIBIR_ANEXADO=
-ANIM_RECOGER_NO_ANEXADO=</code></pre></div>
+  <div class="callout info"><strong>Chaque animation peut être désactivée</strong><p>Laissez la valeur d’une animation vide pour qu’elle ne soit pas jouée. Les animations actives et désactivées peuvent être combinées librement.</p><pre><code>CARRY_ANIMATION=
+SERVE_ANIMATION=
+ATTACHED_RECEIVE_ANIMATION=
+REZZED_PICKUP_ANIMATION=</code></pre></div>
   <div class="feature-list">
-    <article><h3>ANIM_PORTAR</h3><p>Pose permanente de l’avatar qui porte le Dador attaché. Si elle est utilisée, elle doit être préparée en loop. Vide signifie qu’aucune pose de portage n’est jouée.</p><pre><code>ANIM_PORTAR=Anim_Portar</code></pre></article>
-    <article><h3>ANIM_SERVIR</h3><p>Animation temporaire du porteur lorsqu’il sert. Elle est utilisée uniquement avec le Dador attaché et MENUS_SIMULTANEOS=NO. Vide signifie que le porteur ne joue aucune animation de service.</p><pre><code>ANIM_SERVIR=Anim_Servir
-DURACION_ANIM_SERVIR=5.0</code></pre></article>
-    <article><h3>ANIM_RECIBIR_ANEXADO</h3><p>Animation du destinataire lorsque le Dador est attaché. Elle peut rester vide.</p><pre><code>ANIM_RECIBIR_ANEXADO=Anim_Recibir_anexado
-DURACION_ANIM_RECIBIR_ANEXADO=5.0</code></pre></article>
-    <article><h3>ANIM_RECOGER_NO_ANEXADO</h3><p>Animation du destinataire lorsque le Dador est rezzé. Elle peut rester vide.</p><pre><code>ANIM_RECOGER_NO_ANEXADO=Anim_Recoger_no_anexado
-DURACION_ANIM_RECOGER_NO_ANEXADO=5.0</code></pre></article>
+    <article><h3>CARRY_ANIMATION</h3><p>Pose permanente de l’avatar qui porte le Dador attaché. Si elle est utilisée, elle doit être préparée en loop. Vide signifie qu’aucune pose de portage n’est jouée.</p><pre><code>CARRY_ANIMATION=Anim_Carry</code></pre></article>
+    <article><h3>SERVE_ANIMATION</h3><p>Animation temporaire du porteur lorsqu’il sert. Elle est utilisée uniquement avec le Dador attaché et SIMULTANEOUS_MENUS=NO. Vide signifie que le porteur ne joue aucune animation de service.</p><pre><code>SERVE_ANIMATION=Anim_Serve
+SERVE_ANIMATION_DURATION=5.0</code></pre></article>
+    <article><h3>ATTACHED_RECEIVE_ANIMATION</h3><p>Animation du destinataire lorsque le Dador est attaché. Elle peut rester vide.</p><pre><code>ATTACHED_RECEIVE_ANIMATION=Anim_Receive_Attached
+ATTACHED_RECEIVE_ANIMATION_DURATION=5.0</code></pre></article>
+    <article><h3>REZZED_PICKUP_ANIMATION</h3><p>Animation du destinataire lorsque le Dador est rezzé. Elle peut rester vide.</p><pre><code>REZZED_PICKUP_ANIMATION=Anim_Pickup_Rezzed
+REZZED_PICKUP_ANIMATION_DURATION=5.0</code></pre></article>
   </div>
-  <p>Les trois durées d’animation temporaires acceptent toujours 0.1 .. 60.0 secondes. Si l’animation correspondante est vide, sa durée est simplement ignorée. ANIM_PORTAR n’a pas de durée.</p>
-  <h3>Utiliser des animations achetées</h3><p>Il n’est pas nécessaire de les renommer. Si une ligne ANIM_* contient un nom, placez cette animation dans le Dador et indiquez son nom exact dans l’inventaire. Si la ligne est vide, aucune animation n’est requise pour ce rôle.</p><pre><code>ANIM_RECIBIR_ANEXADO=[Tienda] Take Drink Bento 03</code></pre>
-  <h3>Quand un objet temporaire apparaît</h3><pre><code>RETARDO_APARICION_TEMP_ANEXADO=1.3
-RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Avec une animation de réception active, le délai doit rester dans la durée de cette animation. Si l’animation de réception correspondante est vide, il n’y a aucune animation avec laquelle se synchroniser : l’objet temporaire apparaît immédiatement et ce délai n’intervient pas.</p>
+  <p>Les trois durées d’animation temporaires acceptent toujours 0.1 .. 60.0 secondes. Si l’animation correspondante est vide, sa durée est simplement ignorée. CARRY_ANIMATION n’a pas de durée.</p>
+  <h3>Utiliser des animations achetées</h3><p>Il n’est pas nécessaire de les renommer. Si une ligne ANIM_* contient un nom, placez cette animation dans le Dador et indiquez son nom exact dans l’inventaire. Si la ligne est vide, aucune animation n’est requise pour ce rôle.</p><pre><code>ATTACHED_RECEIVE_ANIMATION=[Tienda] Take Drink Bento 03</code></pre>
+  <h3>Quand un objet temporaire apparaît</h3><pre><code>ATTACHED_TEMP_SHOW_DELAY=1.3
+REZZED_TEMP_SHOW_DELAY=1.6</code></pre><p>Avec une animation de réception active, le délai doit rester dans la durée de cette animation. Si l’animation de réception correspondante est vide, il n’y a aucune animation avec laquelle se synchroniser : l’objet temporaire apparaît immédiatement et ce délai n’intervient pas.</p>
 </section>
 
 <section id="mensajes" class="doc-section searchable">
   <div class="section-heading"><span class="step">07</span><div><h2>Messages de livraison</h2><p>Utilisez une phrase personnalisée, le message automatique ou les deux.</p></div></div>
-  <h3>FRASE_DAR</h3><p>Définit une phrase personnalisée. Le nom du paramètre doit rester FRASE_DAR.</p><pre><code>FRASE_DAR=Que aproveche!</code></pre><p>Laissez vide si vous ne voulez pas de phrase personnalisée :</p><pre><code>FRASE_DAR=</code></pre>
-  <h3>MENSAJE_AUTOMATICO</h3><p>Utilisez SI pour activer le message automatique et NO pour le désactiver. Ne traduisez pas SI/NO dans Config Dador.</p><pre><code>MENSAJE_AUTOMATICO=SI</code></pre><p>Avec SI, le Dador ajoute ce format :</p><pre><code>&lt;Nombre del Dador&gt; te ha dado &lt;Nombre del producto&gt;.</code></pre>
-  <table><thead><tr><th>FRASE_DAR</th><th>Automatique</th><th>Résultat</th></tr></thead><tbody>
+  <h3>DELIVERY_MESSAGE</h3><p>Définit une phrase personnalisée. Le nom du paramètre doit rester DELIVERY_MESSAGE.</p><pre><code>DELIVERY_MESSAGE=Que aproveche!</code></pre><p>Laissez vide si vous ne voulez pas de phrase personnalisée :</p><pre><code>DELIVERY_MESSAGE=</code></pre>
+  <h3>AUTOMATIC_MESSAGE</h3><p>Utilisez YES pour activer le message automatique et NO pour le désactiver. Ne traduisez pas YES/NO dans Dador Config.</p><pre><code>AUTOMATIC_MESSAGE=YES</code></pre><p>Avec YES, le Dador ajoute ce format :</p><pre><code>&lt;Nombre del Dador&gt; te ha dado &lt;Nombre del producto&gt;.</code></pre>
+  <table><thead><tr><th>DELIVERY_MESSAGE</th><th>Automatique</th><th>Résultat</th></tr></thead><tbody>
     <tr><td>Vide</td><td>NO</td><td>Aucun message</td></tr>
-    <tr><td>Vide</td><td>SI</td><td>Automatique uniquement</td></tr>
+    <tr><td>Vide</td><td>YES</td><td>Automatique uniquement</td></tr>
     <tr><td>Avec texte</td><td>NO</td><td>Personnalisé uniquement</td></tr>
-    <tr><td>Avec texte</td><td>SI</td><td>Personnalisé + automatique</td></tr>
+    <tr><td>Avec texte</td><td>YES</td><td>Personnalisé + automatique</td></tr>
   </tbody></table>
-  <h3>DISTANCIA_MENSAJES</h3>
+  <h3>MESSAGE_DISTANCE</h3>
   <div class="cards three compact"><article><strong>10</strong><span>Chuchotement · ~10 m</span></article><article><strong>20</strong><span>Chat normal · ~20 m</span></article><article><strong>100</strong><span>Cri · ~100 m</span></article></div>
   <div class="callout info"><strong>Pourquoi le nom du Dador peut apparaître deux fois</strong><p>Second Life affiche automatiquement le nom de l’objet qui parle. Le message automatique peut également contenir ce même nom.</p></div>
 </section>
@@ -207,71 +207,71 @@ RETARDO_APARICION_TEMP_NO_ANEXADO=1.6</code></pre><p>Avec une animation de réce
 <section id="productos" class="doc-section searchable">
   <div class="section-heading"><span class="step">08</span><div><h2>Créer et ajouter des produits</h2><p>Comment préparer de zéro un objet ou une notecard compatible avec le Dador.</p></div></div>
 
-  <div class="callout info"><strong>Ce qu’il vous faut</strong><p>Pour une copie normale, il suffit de préparer le produit et sa description. Si le produit utilise une partie temporaire, utilisez le <code>Script_Temporal</code> fourni avec le système et, lorsque nécessaire, une notecard nommée exactement <code>Config Temporal</code>. Le manuel explique la configuration ; il n’est pas nécessaire de modifier le code du script.</p></div>
+  <div class="callout info"><strong>Ce qu’il vous faut</strong><p>Pour une copie normale, il suffit de préparer le produit et sa description. Si le produit utilise une partie temporaire, utilisez le <code>Temporary_Script</code> fourni avec le système et, lorsque nécessaire, une notecard nommée exactement <code>Temporary Config</code>. Le manuel explique la configuration ; il n’est pas nécessaire de modifier le code du script.</p></div>
 
   <h3>1. Décider ce que le produit doit remettre</h3>
   <p>Le Dador lit la <strong>description de l’élément principal</strong> et utilise deux indicateurs : <code>T</code> pour la partie temporaire et <code>C</code> pour la copie permanente.</p>
   <div class="table-wrap"><table><thead><tr><th>Description</th><th>Résultat</th><th>Utilisation typique</th></tr></thead><tbody>
-    <tr><td><code>T=NO;C=SI</code></td><td>Copie permanente uniquement</td><td>Objet ou notecard remis dans l’inventaire</td></tr>
-    <tr><td><code>T=SI;C=NO</code></td><td>Temporaire uniquement</td><td>Prop attaché temporairement sans laisser de copie</td></tr>
-    <tr><td><code>T=SI;C=SI</code></td><td>Temporaire + copie permanente</td><td>Scène temporaire plus copie dans l’inventaire</td></tr>
+    <tr><td><code>TEMP=NO;COPY=YES</code></td><td>Copie permanente uniquement</td><td>Objet ou notecard remis dans l’inventaire</td></tr>
+    <tr><td><code>TEMP=YES;COPY=NO</code></td><td>Temporaire uniquement</td><td>Prop attaché temporairement sans laisser de copie</td></tr>
+    <tr><td><code>TEMP=YES;COPY=YES</code></td><td>Temporaire + copie permanente</td><td>Scène temporaire plus copie dans l’inventaire</td></tr>
   </tbody></table></div>
-  <p>Une description vide équivaut à <code>T=NO;C=SI</code>. N’utilisez pas <code>T=NO;C=NO</code> : le Dador le considère comme invalide car il n’y aurait rien à remettre.</p>
+  <p>Une description vide équivaut à <code>TEMP=NO;COPY=YES</code>. N’utilisez pas <code>TEMP=NO;COPY=NO</code> : le Dador le considère comme invalide car il n’y aurait rien à remettre.</p>
 
   <h3>2. Choisir la structure du produit</h3>
   <div class="cards four">
     <article><h3>Objet avec copie</h3><pre><code>Bière
-Description: T=NO;C=SI</code></pre><p>Ne nécessite pas <code>Script_Temporal</code>.</p></article>
+Description: TEMP=NO;COPY=YES</code></pre><p>Ne nécessite pas <code>Temporary_Script</code>.</p></article>
     <article><h3>Objet temporaire</h3><pre><code>Bière
-Description: T=SI;C=NO</code></pre><p>Si <code>TEMP_Bière</code> n’existe pas, l’objet principal peut lui-même servir d’objet temporaire.</p></article>
+Description: TEMP=YES;COPY=NO</code></pre><p>Si <code>TEMP_Bière</code> n’existe pas, l’objet principal peut lui-même servir d’objet temporaire.</p></article>
     <article><h3>Objet + TEMP_</h3><pre><code>Bière
 TEMP_Bière</code></pre><p>Si <code>TEMP_Bière</code> existe, le Dador le préfère comme composant temporaire. Le produit visible dans le menu reste <code>Bière</code>.</p></article>
     <article><h3>Notecard + TEMP_</h3><pre><code>Recette de bière
-TEMP_Recette de bière</code></pre><p>Pour une notecard avec <code>T=SI</code>, l’objet <code>TEMP_&lt;nom exact&gt;</code> est obligatoire.</p></article>
+TEMP_Recette de bière</code></pre><p>Pour une notecard avec <code>T=YES</code>, l’objet <code>TEMP_&lt;nom exact&gt;</code> est obligatoire.</p></article>
   </div>
 
   <h3>3. Préparer l’objet temporaire</h3>
   <p>L’objet qui fonctionnera comme composant temporaire doit contenir le noyau temporaire et, si nécessaire, sa configuration et ses animations :</p>
-  <pre><code>Script_Temporal
-Config Temporal
+  <pre><code>Temporary_Script
+Temporary Config
 Animations propres (facultatives)</code></pre>
-  <div class="callout danger"><strong>Noms exacts</strong><p>La notecard doit s’appeler exactement <code>Config Temporal</code>. Le préfixe <code>TEMP_</code> doit également être conservé exactement et suivi du nom complet du produit principal.</p></div>
-  <p>La politique <code>T/C</code> doit être placée dans la description du <strong>produit principal</strong>. Si vous utilisez un objet auxiliaire <code>TEMP_</code>, il n’est pas nécessaire de répéter cette politique dans sa description : le Dador utilise celle du produit principal.</p>
+  <div class="callout danger"><strong>Noms exacts</strong><p>La notecard doit s’appeler exactement <code>Temporary Config</code>. Le préfixe <code>TEMP_</code> doit également être conservé exactement et suivi du nom complet du produit principal.</p></div>
+  <p>La politique <code>TEMP/COPY</code> doit être placée dans la description du <strong>produit principal</strong>. Si vous utilisez un objet auxiliaire <code>TEMP_</code>, il n’est pas nécessaire de répéter cette politique dans sa description : le Dador utilise celle du produit principal.</p>
 
-  <h3>4. Configurer Config Temporal</h3>
-  <p>Les paramètres généraux doivent apparaître avant de commencer la séquence <code>ANIMACIONn/TIEMPOn</code>.</p>
-  <p>Si l’objet temporaire ne possède pas d’animations propres, utilise le comportement final par défaut <code>DESANEXAR_AL_FINAL=SI</code> et n’a pas besoin de phrase propre, <code>Config Temporal</code> peut être omise. Pour rester attaché avec <code>DESANEXAR_AL_FINAL=NO</code>, émettre <code>FRASE_COGER</code> ou contrôler une séquence, <code>Config Temporal</code> est nécessaire.</p>
-  <p><code>Config Temporal</code> accepte jusqu’à <strong>100 lignes physiques</strong>. Utilisez un point décimal pour les durées, par exemple <code>4.2</code>.</p>
+  <h3>4. Configurer Temporary Config</h3>
+  <p>Les paramètres généraux doivent apparaître avant de commencer la séquence <code>ANIMATIONn/DURATIONn</code>.</p>
+  <p>Si l’objet temporaire ne possède pas d’animations propres, utilise le comportement final par défaut <code>DETACH_AT_END=YES</code> et n’a pas besoin de phrase propre, <code>Temporary Config</code> peut être omise. Pour rester attaché avec <code>DETACH_AT_END=NO</code>, émettre <code>PICKUP_MESSAGE</code> ou contrôler une séquence, <code>Temporary Config</code> est nécessaire.</p>
+  <p><code>Temporary Config</code> accepte jusqu’à <strong>100 lignes physiques</strong>. Utilisez un point décimal pour les durées, par exemple <code>4.2</code>.</p>
   <div class="two-col">
-    <div><h3>Sans animations propres</h3><pre><code>FRASE_COGER=
-DISTANCIA_MENSAJE=20
-DESANEXAR_AL_FINAL=SI
+    <div><h3>Sans animations propres</h3><pre><code>PICKUP_MESSAGE=
+MESSAGE_DISTANCE=20
+DETACH_AT_END=YES
 
-ANIMACION1=
-TIEMPO1=</code></pre></div>
-    <div><h3>Avec une animation</h3><pre><code>FRASE_COGER=Vous avez pris une bière.
-DISTANCIA_MENSAJE=20
-DESANEXAR_AL_FINAL=NO
+ANIMATION1=
+DURATION1=</code></pre></div>
+    <div><h3>Avec une animation</h3><pre><code>PICKUP_MESSAGE=Vous avez pris une bière.
+MESSAGE_DISTANCE=20
+DETACH_AT_END=NO
 
-ANIMACION1=BRAZO COGER
-TIEMPO1=4.2</code></pre></div>
+ANIMATION1=BRAZO COGER
+DURATION1=4.2</code></pre></div>
   </div>
 
   <div class="feature-list">
-    <article><h3>FRASE_COGER</h3><p>Texte prononcé par l’objet temporaire environ une seconde après l’attach. Peut rester vide pour ne rien dire.</p></article>
-    <article><h3>DISTANCIA_MENSAJE</h3><p>Accepte uniquement <code>10</code>, <code>20</code> ou <code>100</code>. Si omis, la valeur par défaut est <code>20</code>.</p></article>
-    <article><h3>DESANEXAR_AL_FINAL</h3><p><code>SI</code> masque et détache l’objet temporaire à la fin. <code>NO</code> le laisse visible et attaché jusqu’à ce que l’avatar le retire.</p></article>
-    <article><h3>ANIMACIONn / TIEMPOn</h3><p>Jusqu’à 10 animations, numérotées consécutivement à partir de 1. Chaque durée réelle doit être comprise entre <code>0.1</code> et <code>60.0</code> secondes.</p></article>
+    <article><h3>PICKUP_MESSAGE</h3><p>Texte prononcé par l’objet temporaire environ une seconde après l’attach. Peut rester vide pour ne rien dire.</p></article>
+    <article><h3>MESSAGE_DISTANCE</h3><p>Accepte uniquement <code>10</code>, <code>20</code> ou <code>100</code>. Si omis, la valeur par défaut est <code>20</code>.</p></article>
+    <article><h3>DETACH_AT_END</h3><p><code>YES</code> masque et détache l’objet temporaire à la fin. <code>NO</code> le laisse visible et attaché jusqu’à ce que l’avatar le retire.</p></article>
+    <article><h3>ANIMATIONn / DURATIONn</h3><p>Jusqu’à 10 animations, numérotées consécutivement à partir de 1. Chaque durée réelle doit être comprise entre <code>0.1</code> et <code>60.0</code> secondes.</p></article>
   </div>
 
-  <div class="callout warning"><strong>Ne confondez pas les deux distances de messages</strong><p><code>DISTANCIA_MENSAJE</code> appartient à <code>Config Temporal</code>. <code>DISTANCIA_MENSAJES</code>, avec un S final, appartient à <code>Config Dador</code>. Ce sont deux paramètres différents.</p></div>
+  <div class="callout warning"><strong>Ne confondez pas les deux distances de messages</strong><p><code>MESSAGE_DISTANCE</code> appartient à <code>Temporary Config</code>. <code>MESSAGE_DISTANCE</code>, avec un S final, appartient à <code>Dador Config</code>. Ce sont deux paramètres différents.</p></div>
 
   <h3>5. Règles des animations temporaires</h3>
   <ul>
-    <li>Les paires doivent être consécutives : <code>ANIMACION1</code> + <code>TIEMPO1</code>, puis <code>ANIMACION2</code> + <code>TIEMPO2</code>, etc.</li>
-    <li>N’insérez pas <code>FRASE_COGER</code>, <code>DISTANCIA_MENSAJE</code> ou <code>DESANEXAR_AL_FINAL</code> entre une animation et son temps.</li>
+    <li>Les paires doivent être consécutives : <code>ANIMATION1</code> + <code>DURATION1</code>, puis <code>ANIMATION2</code> + <code>DURATION2</code>, etc.</li>
+    <li>N’insérez pas <code>PICKUP_MESSAGE</code>, <code>MESSAGE_DISTANCE</code> ou <code>DETACH_AT_END</code> entre une animation et son temps.</li>
     <li>Le nom doit correspondre exactement à une animation présente dans l’objet temporaire.</li>
-    <li>Une paire vide telle que <code>ANIMACION1=</code> + <code>TIEMPO1=</code> ferme explicitement la séquence et permet de ne jouer aucune animation même si des animations inutilisées restent dans l’inventaire.</li>
+    <li>Une paire vide telle que <code>ANIMATION1=</code> + <code>DURATION1=</code> ferme explicitement la séquence et permet de ne jouer aucune animation même si des animations inutilisées restent dans l’inventaire.</li>
     <li>Ne déclarez pas de nouvelles animations après une paire vide.</li>
   </ul>
 
@@ -279,13 +279,13 @@ TIEMPO1=4.2</code></pre></div>
   <p>Le Dador vérifie les permissions nécessaires pour remettre des copies et créer des temporaires. Les éléments utilisés comme temporaires doivent autoriser <strong>Copy + Transfer</strong>, y compris le contenu qui doit les accompagner. Si vous modifiez les permissions après la préparation, répétez le test complet.</p>
 
   <h3>7. Tester le produit avant de le placer dans le Dador</h3>
-  <p>Avec <code>Script_Temporal v2.6.4</code>, rezzez manuellement l’objet temporaire. Comme il ne reçoit pas les données de démarrage du Dador, il passe en <strong>mode préparation</strong> : il ne s’attache pas, ne demande pas de permissions, ne lance pas d’animations et ne se supprime pas.</p>
-  <p>Le diagnostic vérifie la description T/C, <code>Config Temporal</code>, ses paramètres, les animations et l’état général du produit. Quand tout est correct, vous devez obtenir quelque chose comme :</p>
-  <pre><code>OK: T=SI;C=SI (temporal + copia).
+  <p>Avec <code>Temporary_Script v2.6.4</code>, rezzez manuellement l’objet temporaire. Comme il ne reçoit pas les données de démarrage du Dador, il passe en <strong>mode préparation</strong> : il ne s’attache pas, ne demande pas de permissions, ne lance pas d’animations et ne se supprime pas.</p>
+  <p>Le diagnostic vérifie la description TEMP/COPY, <code>Temporary Config</code>, ses paramètres, les animations et l’état général du produit. Quand tout est correct, vous devez obtenir quelque chose comme :</p>
+  <pre><code>OK: TEMP=YES;COPY=YES (temporal + copia).
 PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
-RESULTADO: LISTO para introducir en el Dador.
+RESULT: READY to be placed in the Dador.
 MEM: usada=... libre=...</code></pre>
-  <p>Si <code>RESULTADO: NO LISTO</code> apparaît, corrigez d’abord les erreurs indiquées. Le diagnostic se relance lorsque l’inventaire change et surveille également le nom et la description pendant la préparation.</p>
+  <p>Si <code>RESULT: NOT READY</code> apparaît, corrigez d’abord les erreurs indiquées. Le diagnostic se relance lorsque l’inventaire change et surveille également le nom et la description pendant la préparation.</p>
 
   <h3>8. Placer le produit dans le Dador</h3>
   <ol>
@@ -300,7 +300,7 @@ MEM: usada=... libre=...</code></pre>
   </ol>
 
   <div class="stats"><div><strong>30</strong><span>produits maximum</span></div><div><strong>128</strong><span>éléments d’inventaire maximum</span></div></div>
-  <div class="callout info"><strong>Résumé rapide</strong><p>Choisissez d’abord <code>T/C</code>. Préparez ensuite la partie temporaire si elle existe, configurez <code>Config Temporal</code>, rezzez l’objet et attendez <code>RESULTADO: LISTO</code>. Placez seulement ensuite le produit et son éventuel composant <code>TEMP_</code> dans le Dador et testez une livraison complète.</p></div>
+  <div class="callout info"><strong>Résumé rapide</strong><p>Choisissez d’abord <code>TEMP/COPY</code>. Préparez ensuite la partie temporaire si elle existe, configurez <code>Temporary Config</code>, rezzez l’objet et attendez <code>RESULT: READY</code>. Placez seulement ensuite le produit et son éventuel composant <code>TEMP_</code> dans le Dador et testez une livraison complète.</p></div>
 </section>
 
 <section id="temporales" class="doc-section searchable">
@@ -316,47 +316,47 @@ TEMP_Nota de demostración</code></pre>
 <section id="uso" class="doc-section searchable">
   <div class="section-heading"><span class="step">10</span><div><h2>Utilisation rezzée et attachée</h2><p>Deux façons d’utiliser le même système.</p></div></div>
   <div class="compare">
-    <article><span class="compare-label">Rezzé</span><ol><li>Placez le Dador dans le monde.</li><li>L’utilisateur doit se trouver dans RADIO_USO.</li><li>Touchez le Dador et sélectionnez un produit.</li><li>Pour terminer la livraison, restez dans DISTANCIA_NO_ANEXADO.</li><li>Le destinataire utilise ANIM_RECOGER_NO_ANEXADO.</li></ol><p>ANIM_PORTAR et ANIM_SERVIR n’interviennent pas en mode rezzé.</p></article>
-    <article><span class="compare-label">Attaché</span><ol><li>Attachez le Dador à l’avatar qui servira les produits.</li><li>ANIM_PORTAR démarre automatiquement.</li><li>Un autre avatar touche le Dador et choisit un produit.</li><li>Le destinataire doit se trouver dans DISTANCIA_ANEXADO.</li><li>Le destinataire utilise ANIM_RECIBIR_ANEXADO.</li></ol><p>Avec MENUS_SIMULTANEOS=NO, le porteur joue également ANIM_SERVIR.</p></article>
+    <article><span class="compare-label">Rezzé</span><ol><li>Placez le Dador dans le monde.</li><li>L’utilisateur doit se trouver dans USE_RADIUS.</li><li>Touchez le Dador et sélectionnez un produit.</li><li>Pour terminer la livraison, restez dans REZZED_DISTANCE.</li><li>Le destinataire utilise REZZED_PICKUP_ANIMATION.</li></ol><p>CARRY_ANIMATION et SERVE_ANIMATION n’interviennent pas en mode rezzé.</p></article>
+    <article><span class="compare-label">Attaché</span><ol><li>Attachez le Dador à l’avatar qui servira les produits.</li><li>CARRY_ANIMATION démarre automatiquement.</li><li>Un autre avatar touche le Dador et choisit un produit.</li><li>Le destinataire doit se trouver dans ATTACHED_DISTANCE.</li><li>Le destinataire utilise ATTACHED_RECEIVE_ANIMATION.</li></ol><p>Avec SIMULTANEOUS_MENUS=NO, le porteur joue également SERVE_ANIMATION.</p></article>
   </div>
   <div class="callout info"><strong>Le porteur ne peut pas se servir lui-même</strong><p>L’avatar qui porte le Dador ne peut pas utiliser son propre Dador pendant qu’il le porte. Il est destiné à servir d’autres avatars.</p></div>
 </section>
 
 <section id="problemas" class="doc-section searchable">
   <div class="section-heading"><span class="step">11</span><div><h2>Dépannage</h2><p>Vérifications qui résolvent la plupart des problèmes courants.</p></div></div>
-  <details><summary>Le menu n’apparaît pas</summary><p>Vérifiez RADIO_USO, le mode ACCESO, que le Dador a fini de charger, que des produits valides existent et que Config Dador ne contient pas d’erreurs.</p></details>
-  <details><summary>J’obtiens « Pas d’accès »</summary><p>Pour GRUPO, vérifiez le groupe du Dador et le groupe actif de l’avatar. Pour LISTA, utilisez des Usernames valides, pas des Display Names.</p></details>
-  <details><summary>Le Dador indique qu’il est occupé</summary><p>Avec MENUS_SIMULTANEOS=NO, c’est normal : une seule personne peut l’utiliser à la fois.</p></details>
+  <details><summary>Le menu n’apparaît pas</summary><p>Vérifiez USE_RADIUS, le mode ACCESS, que le Dador a fini de charger, que des produits valides existent et que Dador Config ne contient pas d’erreurs.</p></details>
+  <details><summary>J’obtiens « Pas d’accès »</summary><p>Pour GROUP, vérifiez le groupe du Dador et le groupe actif de l’avatar. Pour LIST, utilisez des Usernames valides, pas des Display Names.</p></details>
+  <details><summary>Le Dador indique qu’il est occupé</summary><p>Avec SIMULTANEOUS_MENUS=NO, c’est normal : une seule personne peut l’utiliser à la fois.</p></details>
   <details><summary>Trop de menus ou de demandes</summary><p>Le mode simultané accepte jusqu’à 20 sessions de menu actives et 20 sélections en attente.</p></details>
-  <details><summary>Le Dador me demande de me rapprocher</summary><p>Vous pouvez être dans RADIO_USO tout en étant hors de la distance finale. Vérifiez DISTANCIA_ANEXADO ou DISTANCIA_NO_ANEXADO.</p></details>
-  <details><summary>Une animation ne fonctionne pas</summary><p>Vérifiez qu’elle se trouve dans le Dador, que son nom correspond exactement et que la durée est correcte. ANIM_PORTAR doit aussi être préparée pour loop.</p></details>
-  <details><summary>ANIM_SERVIR ne fonctionne pas</summary><p>Si MENUS_SIMULTANEOS=SI, c’est volontaire.</p></details>
-  <details><summary>Un temporaire apparaît trop tôt ou trop tard</summary><p>Ajustez RETARDO_APARICION_TEMP_ANEXADO ou RETARDO_APARICION_TEMP_NO_ANEXADO.</p></details>
+  <details><summary>Le Dador me demande de me rapprocher</summary><p>Vous pouvez être dans USE_RADIUS tout en étant hors de la distance finale. Vérifiez ATTACHED_DISTANCE ou REZZED_DISTANCE.</p></details>
+  <details><summary>Une animation ne fonctionne pas</summary><p>Vérifiez qu’elle se trouve dans le Dador, que son nom correspond exactement et que la durée est correcte. CARRY_ANIMATION doit aussi être préparée pour loop.</p></details>
+  <details><summary>SERVE_ANIMATION ne fonctionne pas</summary><p>Si SIMULTANEOUS_MENUS=YES, c’est volontaire.</p></details>
+  <details><summary>Un temporaire apparaît trop tôt ou trop tard</summary><p>Ajustez ATTACHED_TEMP_SHOW_DELAY ou REZZED_TEMP_SHOW_DELAY.</p></details>
   <details><summary>Un temporaire ne disparaît pas</summary><p>Cela peut être correct. Certains produits sont conçus pour rester attachés jusqu’à ce que le destinataire les retire.</p></details>
-  <details><summary>Aucun message de livraison n’apparaît</summary><p>Avec FRASE_DAR= et MENSAJE_AUTOMATICO=NO, l’absence de message est le résultat attendu.</p></details>
-  <details><summary>DISTANCIA_MENSAJES provoque une erreur</summary><p>Seules les valeurs 10, 20 ou 100 sont acceptées.</p></details>
+  <details><summary>Aucun message de livraison n’apparaît</summary><p>Avec DELIVERY_MESSAGE= et AUTOMATIC_MESSAGE=NO, l’absence de message est le résultat attendu.</p></details>
+  <details><summary>MESSAGE_DISTANCE provoque une erreur</summary><p>Seules les valeurs 10, 20 ou 100 sont acceptées.</p></details>
 </section>
 
 <section id="referencia" class="doc-section searchable">
   <div class="section-heading"><span class="step">12</span><div><h2>Référence rapide</h2><p>Tous les paramètres importants dans un seul tableau.</p></div></div>
   <div class="table-wrap"><table class="reference"><thead><tr><th>Paramètre</th><th>Valeurs</th></tr></thead><tbody>
-    <tr><td><code>ACCESO</code></td><td>PROPIETARIO · GRUPO · LISTA · TODOS</td></tr>
-    <tr><td><code>MENUS_SIMULTANEOS</code></td><td>SI · NO</td></tr>
-    <tr><td><code>FRASE_DAR</code></td><td>Texte libre ou vide</td></tr>
-    <tr><td><code>MENSAJE_AUTOMATICO</code></td><td>SI · NO</td></tr>
-    <tr><td><code>DISTANCIA_MENSAJES</code></td><td>10 · 20 · 100</td></tr>
-    <tr><td><code>RADIO_USO</code></td><td>0.5 .. 300.0</td></tr>
-    <tr><td><code>DISTANCIA_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
-    <tr><td><code>DISTANCIA_NO_ANEXADO</code></td><td>0.1 .. 100.0</td></tr>
-    <tr><td><code>ANIM_PORTAR</code></td><td>Nom exact de l’animation · loop · ou vide</td></tr>
-    <tr><td><code>ANIM_SERVIR</code></td><td>Nom exact de l’animation · ou vide</td></tr>
-    <tr><td><code>ANIM_RECIBIR_ANEXADO</code></td><td>Nom exact de l’animation · ou vide</td></tr>
-    <tr><td><code>ANIM_RECOGER_NO_ANEXADO</code></td><td>Nom exact de l’animation · ou vide</td></tr>
-    <tr><td><code>DURACION_ANIM_SERVIR</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>DURACION_ANIM_RECIBIR_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>DURACION_ANIM_RECOGER_NO_ANEXADO</code></td><td>0.1 .. 60.0</td></tr>
-    <tr><td><code>RETARDO_APARICION_TEMP_ANEXADO</code></td><td>0.0 .. 10.0</td></tr>
-    <tr><td><code>RETARDO_APARICION_TEMP_NO_ANEXADO</code></td><td>0.0 .. 10.0</td></tr>
+    <tr><td><code>ACCESS</code></td><td>OWNER · GROUP · LIST · ALL</td></tr>
+    <tr><td><code>SIMULTANEOUS_MENUS</code></td><td>YES · NO</td></tr>
+    <tr><td><code>DELIVERY_MESSAGE</code></td><td>Texte libre ou vide</td></tr>
+    <tr><td><code>AUTOMATIC_MESSAGE</code></td><td>YES · NO</td></tr>
+    <tr><td><code>MESSAGE_DISTANCE</code></td><td>10 · 20 · 100</td></tr>
+    <tr><td><code>USE_RADIUS</code></td><td>0.5 .. 300.0</td></tr>
+    <tr><td><code>ATTACHED_DISTANCE</code></td><td>0.1 .. 100.0</td></tr>
+    <tr><td><code>REZZED_DISTANCE</code></td><td>0.1 .. 100.0</td></tr>
+    <tr><td><code>CARRY_ANIMATION</code></td><td>Nom exact de l’animation · loop · ou vide</td></tr>
+    <tr><td><code>SERVE_ANIMATION</code></td><td>Nom exact de l’animation · ou vide</td></tr>
+    <tr><td><code>ATTACHED_RECEIVE_ANIMATION</code></td><td>Nom exact de l’animation · ou vide</td></tr>
+    <tr><td><code>REZZED_PICKUP_ANIMATION</code></td><td>Nom exact de l’animation · ou vide</td></tr>
+    <tr><td><code>SERVE_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>ATTACHED_RECEIVE_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>REZZED_PICKUP_ANIMATION_DURATION</code></td><td>0.1 .. 60.0</td></tr>
+    <tr><td><code>ATTACHED_TEMP_SHOW_DELAY</code></td><td>0.0 .. 10.0</td></tr>
+    <tr><td><code>REZZED_TEMP_SHOW_DELAY</code></td><td>0.0 .. 10.0</td></tr>
   </tbody></table></div>
 </section>
 
