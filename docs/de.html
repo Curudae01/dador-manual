@@ -192,7 +192,7 @@ REZZED_TEMP_SHOW_DELAY=1.6</code></pre><p>Bei aktiver Empfängeranimation muss d
 <section id="mensajes" class="doc-section searchable">
   <div class="section-heading"><span class="step">07</span><div><h2>Liefermeldungen</h2><p>Eigene Phrase, automatische Meldung oder beides verwenden.</p></div></div>
   <h3>DELIVERY_MESSAGE</h3><p>Legt einen eigenen Text fest. Der Parametername muss DELIVERY_MESSAGE bleiben.</p><pre><code>DELIVERY_MESSAGE=Que aproveche!</code></pre><p>Leer lassen, wenn keine eigene Phrase gewünscht ist:</p><pre><code>DELIVERY_MESSAGE=</code></pre>
-  <h3>AUTOMATIC_MESSAGE</h3><p>YES aktiviert die automatische Meldung, NO deaktiviert sie. YES/NO in Dador Config nicht übersetzen.</p><pre><code>AUTOMATIC_MESSAGE=YES</code></pre><p>Mit YES ergänzt der Dador dieses Muster:</p><pre><code>&lt;Nombre del Dador&gt; te ha dado &lt;Nombre del producto&gt;.</code></pre>
+  <h3>AUTOMATIC_MESSAGE</h3><p>YES aktiviert die automatische Meldung, NO deaktiviert sie. YES/NO in Dador Config nicht übersetzen.</p><pre><code>AUTOMATIC_MESSAGE=YES</code></pre><p>Mit YES ergänzt der Dador dieses Muster:</p><pre><code>&lt;Dador name&gt; has given you &lt;Product name&gt;.</code></pre>
   <table><thead><tr><th>DELIVERY_MESSAGE</th><th>Automatisch</th><th>Ergebnis</th></tr></thead><tbody>
     <tr><td>Leer</td><td>NO</td><td>Keine Meldung</td></tr>
     <tr><td>Leer</td><td>YES</td><td>Nur automatisch</td></tr>
@@ -253,7 +253,7 @@ DURATION1=</code></pre></div>
 MESSAGE_DISTANCE=20
 DETACH_AT_END=NO
 
-ANIMATION1=BRAZO COGER
+ANIMATION1=ARM PICKUP
 DURATION1=4.2</code></pre></div>
   </div>
 
@@ -264,7 +264,7 @@ DURATION1=4.2</code></pre></div>
     <article><h3>ANIMATIONn / DURATIONn</h3><p>Bis zu 10 Animationen, fortlaufend ab 1 nummeriert. Jede reale Dauer muss zwischen <code>0.1</code> und <code>60.0</code> Sekunden liegen.</p></article>
   </div>
 
-  <div class="callout warning"><strong>Die beiden Nachrichten-Distanzen nicht verwechseln</strong><p><code>MESSAGE_DISTANCE</code> gehört zu <code>Temporary Config</code>. <code>MESSAGE_DISTANCE</code> mit abschließendem S gehört zu <code>Dador Config</code>. Es sind unterschiedliche Parameter.</p></div>
+  <div class="callout warning"><strong>Derselbe Schlüssel wird in zwei verschiedenen Notecards verwendet</strong><p><code>MESSAGE_DISTANCE</code> ist sowohl in <code>Temporary Config</code> als auch in <code>Dador Config</code> gültig. Jede Notecard steuert ihre eigene Nachrichten-Distanz unabhängig.</p></div>
 
   <h3>5. Regeln für temporäre Animationen</h3>
   <ul>
@@ -281,7 +281,7 @@ DURATION1=4.2</code></pre></div>
   <h3>7. Produkt testen, bevor es in den Dador kommt</h3>
   <p>Mit <code>Temporary_Script v2.6.4</code> wird das temporäre Objekt manuell gerezzt. Da es keine Startdaten vom Dador erhält, startet der <strong>Vorbereitungsmodus</strong>: Es wird nicht angelegt, fordert keine Berechtigungen an, startet keine Animationen und löscht sich nicht.</p>
   <p>Die Diagnose prüft TEMP/COPY-Beschreibung, <code>Temporary Config</code>, Parameter, Animationen und den allgemeinen Produktzustand. Wenn alles korrekt ist, erscheint beispielsweise:</p>
-  <pre><code>OK: TEMP=YES;COPY=YES (temporal + copia).
+  <pre><code>OK: TEMP=YES;COPY=YES (temporary + copy).
 PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
 RESULT: READY to be placed in the Dador.
 MEM: usada=... libre=...</code></pre>
@@ -289,7 +289,7 @@ MEM: usada=... libre=...</code></pre>
 
   <h3>8. Produkt in den Dador legen</h3>
   <ol>
-    <li>Wenn die Diagnose <code>LISTO</code> meldet, das gerezzte Objekt wieder aufnehmen.</li>
+    <li>Wenn die Diagnose <code>RESULT: READY</code> meldet, das gerezzte Objekt wieder aufnehmen.</li>
     <li>Den Dador bearbeiten und <strong>Inhalt</strong> öffnen.</li>
     <li>Das Hauptprodukt hinzufügen.</li>
     <li>Falls eine separate <code>TEMP_</code>-Komponente verwendet wird, diese ebenfalls hinzufügen.</li>
