@@ -2,11 +2,19 @@
 
 Manual público del **Delivery para Second Life**.
 
+La interfaz pública utiliza la identidad visual oficial de **Sonja Creations**: paleta Forest `#244333`, Purple `#50334F`, Navy `#18283D` e Ivory `#E8DFCB`, junto con el icono corporativo como favicon y elemento de marca.
+
 Este repositorio contiene únicamente documentación para usuarios. **No contiene los scripts privados del producto.**
 
 La revisión v2.2 amplía el manual con una guía completa para crear y preparar productos compatibles desde cero: política `T/C`, componentes `TEMP_`, `Script_Temporal v2.6.4`, `Config Temporal`, animaciones opcionales, permisos y diagnóstico previo antes de introducir el producto en el Dador.
 
 También conserva la documentación de las cuatro animaciones opcionales del Dador: `ANIM_PORTAR`, `ANIM_SERVIR`, `ANIM_RECIBIR_ANEXADO` y `ANIM_RECOGER_NO_ANEXADO` pueden dejarse vacías para desactivarlas individualmente.
+
+## Identidad visual
+
+El branding es una capa exclusivamente visual y editorial. No modifica los contratos técnicos por idioma ni los ejemplos copiables del producto.
+
+La referencia corporativa reutilizable se mantiene en el repositorio privado `LSL-SL`, dentro de `Marca comercial/GUIA_BRANDING_MANUALES_WEB.md`.
 
 ## Contrato técnico por idioma
 
