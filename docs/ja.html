@@ -288,17 +288,28 @@ DURATION1=4.2</code></pre></div>
   <p>Dador はコピー配布と一時オブジェクト生成に必要な権限を確認します。一時用に使う要素は、それと一緒に移動する必要がある内容も含めて <strong>Copy + Transfer</strong> を許可する必要があります。準備後に権限を変更した場合は、完全なテストをやり直してください。</p>
 
   <h3>7. Dador に入れる前に製品をテストする</h3>
-  <p><code>Temporary_Script v2.6.4</code> を使う場合、一時オブジェクトを手動で REZ します。Dador の起動データを受け取らないため<strong>準備モード</strong>になり、装着、権限要求、アニメーション実行、自動削除は行いません。</p>
+  <p><code>Temporary_Script v2.6.5</code> を使う場合、一時オブジェクトを手動で REZ します。Dador の起動データを受け取らないため<strong>準備モード</strong>になり、装着、権限要求、アニメーション実行、自動削除は行いません。</p>
   <p>診断は TEMP/COPY 説明、<code>Temporary Config</code>、各パラメータ、アニメーション、製品全体の状態を確認します。すべて正しければ次のような表示になります。</p>
   <pre><code>OK: TEMP=YES;COPY=YES (temporary + copy).
-PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+PREP v2.6.5 | object='Pepo' | anim=1 | sequence=1
 RESULT: READY to be placed in the Dador.
-MEM: usada=... libre=...</code></pre>
+MEM: used=... free=...</code></pre>
   <p><code>RESULT: NOT READY</code> が表示された場合は、示されたエラーを先に修正してください。インベントリ変更時には診断が再実行され、準備モード中は名前と説明も監視されます。</p>
+<div class="callout info">
+  <strong>v2.6.5 の新機能：販売前に設定を完了する</strong>
+  <ol>
+    <li><code>Temporary_Script v2.6.5</code> を入れたオブジェクトを REZ し、<code>RESULT: READY</code> が表示されるまで問題を修正します。</li>
+    <li>スクリプトは <strong>「Have you finished configuring this product?」</strong> と質問します。完了するには <code>YES</code>、診断を続けるには <code>NO</code> を選択します。</li>
+    <li><code>YES</code> の確認はオブジェクトと以後のコピーに保持されます。回収、再 REZ、購入者の装着時にも <code>PREP</code>、<code>INFO</code>、<code>RESULT</code>、<code>MEM</code> などの準備メッセージは表示されません。</li>
+    <li>完了を確定した所有者が後からオブジェクト内のインベントリを変更した場合、再確認のため準備モードが再開することがあります。購入者への所有者変更だけでは再開しません。</li>
+  </ol>
+  <p><strong>受け取りメッセージは消えません：</strong><code>PICKUP_MESSAGE=</code> が空なら正常で、エラーにもならず発言しません。文章がある場合は Dador による実際の受け渡し時に引き続き発言します。</p>
+  <p><strong>コピーのみの設定も有効：</strong><code>TEMP=NO;COPY=YES</code> または説明欄が空の場合も有効です。<code>TEMP=YES;COPY=NO</code> と <code>TEMP=YES;COPY=YES</code> も有効ですが、<code>TEMP=NO;COPY=NO</code> は無効です。</p>
+</div>
 
   <h3>8. 製品を Dador に入れる</h3>
   <ol>
-    <li>診断で <code>RESULT: READY</code> が表示されたら、REZしていたオブジェクトを取り戻します。</li>
+    <li><code>RESULT: READY</code> が表示されたら、回収や販売の前に <code>YES</code> を選び、設定完了を確定します。</li>
     <li>Dador を編集して <strong>Contents</strong> を開きます。</li>
     <li>メイン製品を追加します。</li>
     <li>別の <code>TEMP_</code> コンポーネントを使う場合は、それも追加します。</li>
@@ -309,7 +320,7 @@ MEM: usada=... libre=...</code></pre>
   </ol>
 
   <div class="stats"><div><strong>30</strong><span>最大製品数</span></div><div><strong>128</strong><span>インベントリ総数の上限</span></div></div>
-  <div class="callout info"><strong>簡単なまとめ</strong><p>最初に <code>TEMP/COPY</code> を決めます。一時部分がある場合はそれを準備し、<code>Temporary Config</code> を設定して REZ し、<code>RESULT: READY</code> を確認します。その後で製品と必要な <code>TEMP_</code> を Dador に入れ、完全な配布テストを行います。</p></div>
+  <div class="callout info"><strong>簡単なまとめ</strong><p>最初に <code>TEMP/COPY</code> を決めます。一時部分がある場合はそれを準備し、<code>Temporary Config</code> を設定して REZ し、<code>RESULT: READY</code> を確認します。販売前に <code>YES</code> を確定して準備診断を無効にします。その後で製品と必要な <code>TEMP_</code> を Dador に入れ、完全な配布テストを行います。</p></div>
 </section>
 
 <section id="temporales" class="doc-section searchable">
