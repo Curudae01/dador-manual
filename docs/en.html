@@ -288,17 +288,28 @@ DURATION1=4.2</code></pre></div>
   <p>The Dador validates the permissions required to deliver copies and create temporary objects. Items used as temporaries must allow <strong>Copy + Transfer</strong>, including the content that must travel with them. If you change permissions after preparing the product, repeat the full test.</p>
 
   <h3>7. Test the product before placing it in the Dador</h3>
-  <p>With <code>Temporary_Script v2.6.4</code>, rez the temporary object manually. Because it receives no Dador startup data, it enters <strong>preparation mode</strong>: it does not attach, request permissions, run animations or delete itself.</p>
+  <p>With <code>Temporary_Script v2.6.5</code>, rez the temporary object manually. Because it receives no Dador startup data, it enters <strong>preparation mode</strong>: it does not attach, request permissions, run animations or delete itself.</p>
   <p>The diagnostic checks the TEMP/COPY description, <code>Temporary Config</code>, its parameters, animations and the general product state. When everything is correct you should see something like:</p>
   <pre><code>OK: TEMP=YES;COPY=YES (temporary + copy).
-PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+PREP v2.6.5 | object='Pepo' | anim=1 | sequence=1
 RESULT: READY to be placed in the Dador.
-MEM: usada=... libre=...</code></pre>
+MEM: used=... free=...</code></pre>
   <p>If <code>RESULT: NOT READY</code> appears, fix the reported errors first. The diagnostic runs again when inventory changes and also watches the name and description while the object is in preparation mode.</p>
+<div class="callout info">
+  <strong>New in v2.6.5: finish setup before selling the product</strong>
+  <ol>
+    <li>Rez the object with <code>Temporary_Script v2.6.5</code>. Fix any errors until you see <code>RESULT: READY</code>.</li>
+    <li>The script asks <strong>“Have you finished configuring this product?”</strong>. Select <code>YES</code> to finalize or <code>NO</code> to keep preparation diagnostics active.</li>
+    <li><code>YES</code> stores the confirmation in the object and its future copies. Preparation messages such as <code>PREP</code>, <code>INFO</code>, <code>RESULT</code> and <code>MEM</code> no longer appear when the object is taken, rezzed again or worn by a customer.</li>
+    <li>If the owner who finalized the object later changes its inventory, preparation can reopen to check the changes. A buyer becoming the new owner does not reopen it by itself.</li>
+  </ol>
+  <p><strong>Delivery messages are unaffected:</strong> an empty <code>PICKUP_MESSAGE=</code> is valid and sends no message. A non-empty value is still spoken during a real Dador delivery.</p>
+  <p><strong>Copy-only is valid:</strong> <code>TEMP=NO;COPY=YES</code> and an empty description are accepted, as are <code>TEMP=YES;COPY=NO</code> and <code>TEMP=YES;COPY=YES</code>. <code>TEMP=NO;COPY=NO</code> is invalid.</p>
+</div>
 
   <h3>8. Put the product into the Dador</h3>
   <ol>
-    <li>When the diagnostic shows <code>RESULT: READY</code>, take the object back if it was rezzed.</li>
+    <li>When the diagnostic shows <code>RESULT: READY</code>, select <code>YES</code> to finalize setup before taking back or distributing the object.</li>
     <li>Edit the Dador and open <strong>Contents</strong>.</li>
     <li>Add the main product.</li>
     <li>If it uses a separate <code>TEMP_</code> component, add that as well.</li>
@@ -309,7 +320,7 @@ MEM: usada=... libre=...</code></pre>
   </ol>
 
   <div class="stats"><div><strong>30</strong><span>maximum products</span></div><div><strong>128</strong><span>maximum total inventory items</span></div></div>
-  <div class="callout info"><strong>Quick summary</strong><p>Choose <code>TEMP/COPY</code> first. Then prepare the temporary part if there is one, configure <code>Temporary Config</code>, rez it and wait for <code>RESULT: READY</code>. Only then place the product and any <code>TEMP_</code> component in the Dador and test a complete delivery.</p></div>
+  <div class="callout info"><strong>Quick summary</strong><p>Choose <code>TEMP/COPY</code> first. Then prepare the temporary part if there is one, configure <code>Temporary Config</code>, rez it and wait for <code>RESULT: READY</code>. Confirm <code>YES</code> to silence preparation reports before selling. Only then place the product and any <code>TEMP_</code> component in the Dador and test a complete delivery.</p></div>
 </section>
 
 <section id="temporales" class="doc-section searchable">
