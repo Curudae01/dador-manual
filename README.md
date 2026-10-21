@@ -6,7 +6,9 @@ La interfaz pública utiliza la identidad visual oficial de **Sonja Creations**:
 
 Este repositorio contiene únicamente documentación para usuarios. **No contiene los scripts privados del producto.**
 
-La revisión v2.2 amplía el manual con una guía completa para crear y preparar productos compatibles desde cero: política `T/C`, componentes `TEMP_`, `Script_Temporal v2.6.4`, `Config Temporal`, animaciones opcionales, permisos y diagnóstico previo antes de introducir el producto en el Dador.
+La revisión v2.2 amplía el manual con una guía completa para crear y preparar productos compatibles desde cero: política `T/C`, componentes `TEMP_`, `Script_Temporal v2.6.5`, `Config Temporal`, animaciones opcionales, permisos y diagnóstico previo antes de introducir el producto en el Dador.
+
+**Actualización 2026-10-21:** se documenta la finalización de la preparación de objetos con `SI` / `YES`, que silencia los diagnósticos para futuros compradores; la validez de solo copia (`T=NO;C=SI` / `TEMP=NO;COPY=YES`) y descripciones vacías; y que `FRASE_COGER=` / `PICKUP_MESSAGE=` vacío es válido, mientras un mensaje personalizado sigue funcionando durante la entrega. Las páginas no españolas utilizan exclusivamente los parámetros técnicos ingleses.
 
 También conserva la documentación de las cuatro animaciones opcionales del Dador: `ANIM_PORTAR`, `ANIM_SERVIR`, `ANIM_RECIBIR_ANEXADO` y `ANIM_RECOGER_NO_ANEXADO` pueden dejarse vacías para desactivarlas individualmente.
 
