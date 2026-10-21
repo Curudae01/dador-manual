@@ -288,13 +288,24 @@ DURATION1=4.2</code></pre></div>
   <p>O Dador valida as permissões necessárias para entregar cópias e criar temporários. Os elementos usados como temporários devem permitir <strong>Copy + Transfer</strong>, incluindo o conteúdo que tenha de viajar com eles. Se alterar permissões depois de preparar o produto, repita o teste completo.</p>
 
   <h3>7. Teste o produto antes de o colocar no Dador</h3>
-  <p>Com <code>Temporary_Script v2.6.4</code>, reze manualmente o objeto temporário. Como não recebe os dados de arranque do Dador, entra em <strong>modo de preparação</strong>: não se anexa, não pede permissões, não executa animações e não se elimina.</p>
+  <p>Com <code>Temporary_Script v2.6.5</code>, reze manualmente o objeto temporário. Como não recebe os dados de arranque do Dador, entra em <strong>modo de preparação</strong>: não se anexa, não pede permissões, não executa animações e não se elimina.</p>
   <p>O diagnóstico verifica a descrição TEMP/COPY, <code>Temporary Config</code>, os parâmetros, as animações e o estado geral do produto. Quando tudo está correto deve aparecer algo semelhante a:</p>
   <pre><code>OK: TEMP=YES;COPY=YES (temporary + copy).
-PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+PREP v2.6.5 | object='Pepo' | anim=1 | sequence=1
 RESULT: READY to be placed in the Dador.
-MEM: usada=... libre=...</code></pre>
+MEM: used=... free=...</code></pre>
   <p>Se aparecer <code>RESULT: NOT READY</code>, corrija primeiro os erros indicados. O diagnóstico volta a executar-se quando o inventário muda e também vigia o nome e a descrição enquanto o objeto está em preparação.</p>
+<div class="callout info">
+  <strong>Novo na v2.6.5: conclua a configuração antes de vender</strong>
+  <ol>
+    <li>Reze o objeto com <code>Temporary_Script v2.6.5</code> e corrija os erros até aparecer <code>RESULT: READY</code>.</li>
+    <li>O script pergunta <strong>“Have you finished configuring this product?”</strong>. Escolha <code>YES</code> para finalizar ou <code>NO</code> para continuar a receber diagnósticos de preparação.</li>
+    <li><code>YES</code> guarda a confirmação no objeto e nas futuras cópias. As mensagens de preparação, como <code>PREP</code>, <code>INFO</code>, <code>RESULT</code> e <code>MEM</code>, deixam de surgir quando o objeto é recolhido, novamente rezzado ou vestido pelo comprador.</li>
+    <li>Se o proprietário que finalizou modificar depois o inventário do objeto, a preparação pode voltar a ser ativada. A mudança de proprietário para o comprador, por si só, não a reativa.</li>
+  </ol>
+  <p><strong>A mensagem de entrega mantém-se:</strong> <code>PICKUP_MESSAGE=</code> vazio é válido, não constitui erro e não envia texto. Se tiver conteúdo, continua a ser emitido durante uma entrega real do Dador.</p>
+  <p><strong>Apenas cópia também é válido:</strong> <code>TEMP=NO;COPY=YES</code> ou uma descrição vazia são aceites, tal como <code>TEMP=YES;COPY=NO</code> e <code>TEMP=YES;COPY=YES</code>. <code>TEMP=NO;COPY=NO</code> é inválido.</p>
+</div>
 
   <h3>8. Coloque o produto no Dador</h3>
   <ol>
