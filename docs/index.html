@@ -470,17 +470,28 @@ TIEMPO1=4.2</code></pre>
         <p>El Dador valida los permisos necesarios para poder entregar copias y crear temporales. Los elementos utilizados como temporales deben permitir <strong>Copy + Transfer</strong>, incluido el contenido que deba viajar con ellos. Si cambias permisos después de preparar el producto, repite la prueba completa.</p>
 
         <h3>7. Prueba el producto antes de meterlo en el Dador</h3>
-        <p>Con <code>Script_Temporal v2.6.4</code>, rezea manualmente el objeto temporal. Al no recibir los datos de arranque del Dador entra en <strong>modo preparación</strong>: no se anexa, no solicita permisos, no ejecuta animaciones y no se elimina.</p>
+        <p>Con <code>Script_Temporal v2.6.5</code>, rezea manualmente el objeto temporal. Al no recibir los datos de arranque del Dador entra en <strong>modo preparación</strong>: no se anexa, no solicita permisos, no ejecuta animaciones y no se elimina.</p>
         <p>El diagnóstico comprueba la descripción T/C, <code>Config Temporal</code>, sus parámetros, las animaciones y el estado general del producto. Cuando todo está correcto debe aparecer algo como:</p>
         <pre><code>OK: T=SI;C=SI (temporal + copia).
-PREP v2.6.4 | objeto='Pepo' | anim=1 | secuencia=1
+PREP v2.6.5 | objeto='Pepo' | anim=1 | secuencia=1
 RESULTADO: LISTO para introducir en el Dador.
 MEM: usada=... libre=...</code></pre>
         <p>Si aparece <code>RESULTADO: NO LISTO</code>, corrige primero los errores indicados. El diagnóstico vuelve a ejecutarse al cambiar el inventario y también vigila nombre y descripción mientras el objeto está en preparación.</p>
+<div class="callout info">
+          <strong>Nuevo en v2.6.5: termina la configuración antes de vender</strong>
+          <ol>
+            <li>Rezea el objeto con <code>Script_Temporal v2.6.5</code> y corrige cualquier error hasta ver <code>RESULTADO: LISTO</code>.</li>
+            <li>El script pregunta <strong>«Has terminado de configurar este producto?»</strong>. Pulsa <code>SI</code> para finalizar; <code>NO</code> mantiene los diagnósticos activos.</li>
+            <li>Tras pulsar <code>SI</code>, la confirmación se guarda en el objeto y sus futuras copias. Ni al recogerlo, ni al volver a rezearlo, ni cuando el cliente lo vista volverán a aparecer <code>PREP</code>, <code>INFO</code>, <code>RESULTADO</code> o <code>MEM</code> de preparación.</li>
+            <li>Si el mismo propietario que lo finalizó cambia posteriormente el inventario, podrá reactivarse la preparación para revisar los cambios. Un comprador distinto no la reactiva por cambiar de propietario.</li>
+          </ol>
+          <p><strong>La frase de entrega no se silencia:</strong> <code>FRASE_COGER=</code> vacío es válido y no genera ningún error ni mensaje. Si contiene texto, se seguirá diciendo al recoger el temporal durante una entrega real del Dador.</p>
+          <p><strong>Solo copia también es válido:</strong> <code>T=NO;C=SI</code> y una descripción vacía se aceptan; <code>T=SI;C=NO</code> y <code>T=SI;C=SI</code> también. <code>T=NO;C=NO</code> es inválido porque no entregaría nada.</p>
+        </div>
 
         <h3>8. Introduce el producto en el Dador</h3>
         <ol>
-          <li>Cuando el diagnóstico indique <code>LISTO</code>, recoge el objeto si lo tenías rezzado.</li>
+          <li>Cuando el diagnóstico indique <code>LISTO</code>, responde <code>SI</code> a la confirmación de fin de preparación antes de recoger el objeto y distribuirlo.</li>
           <li>Edita el Dador y abre <strong>Contenido</strong>.</li>
           <li>Introduce el producto principal.</li>
           <li>Si utiliza un componente separado <code>TEMP_</code>, introdúcelo también.</li>
@@ -497,7 +508,7 @@ MEM: usada=... libre=...</code></pre>
 
         <div class="callout info">
           <strong>Resumen rápido</strong>
-          <p>Primero decide <code>T/C</code>. Después prepara el temporal si existe, configura <code>Config Temporal</code>, rezea y espera <code>RESULTADO: LISTO</code>. Solo entonces introduce el producto y su posible <code>TEMP_</code> en el Dador y prueba una entrega completa.</p>
+          <p>Primero decide <code>T/C</code>. Después prepara el temporal si existe, configura <code>Config Temporal</code>, rezea y espera <code>RESULTADO: LISTO</code>. Confirma <code>SI</code> para silenciar los informes de configuración antes de venderlo. Solo entonces introduce el producto y su posible <code>TEMP_</code> en el Dador y prueba una entrega completa.</p>
         </div>
       </section>
 
